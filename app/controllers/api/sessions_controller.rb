@@ -2,8 +2,8 @@ class Api::SessionsController < ApplicationController
   # controller action for logging in
   def create
     @user = User.find_by_credentials(
-      email: params[:user][:email],
-      password: params[:user][:email]
+      params[:user][:email],
+      params[:user][:password]
     )
     if @user.nil?
       render json: ['Invalid User Credentials'], status: 422
