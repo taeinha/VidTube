@@ -14,12 +14,11 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     if !logged_in?
       render json: ['You are not logged in!'], status: 422
     else
       log_out!
-      render 'api/users/show'
+      render json: {}
     end
   end
 end
