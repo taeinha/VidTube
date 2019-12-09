@@ -25,11 +25,20 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const { formType } = this.props;
+    const { formType, errors, clearErrors } = this.props;
+
+    const errorLis = errors.map((error, i) => (
+      <li key={i}>{error}</li>
+    ))
     return (
       <div className="session-form-container">
 
         <h2>{formType}</h2>
+
+        <ul className="session-errors">
+          {errorLis}
+        </ul>
+
         <form onSubmit={this.handleSubmit}>
           { formType === 'Sign Up' ? (
             <label>
@@ -62,9 +71,9 @@ class SessionForm extends React.Component {
           <button type="submit">{formType}</button>
           {
             formType === 'Sign Up' ? (
-              <Link to='/login'>Log In</Link>
+              <Link to='/login' onClick={clearErrors}>Log In</Link>
             ) : (
-              <Link to='/signup'>Sign Up</Link>
+              <Link to='/signup' onClick={clearErrors}>Sign Up</Link>
             )
           }
         </form>
