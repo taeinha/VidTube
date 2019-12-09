@@ -4,7 +4,7 @@ import { signup } from '../../actions/session_actions';
 
 const msp = state => ({
   errors: state.errors.session,
-  formType: 'signup'
+  formType: 'Sign Up'
 });
 
 const mdp = dispatch => ({
