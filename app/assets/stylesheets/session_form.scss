@@ -38,7 +38,7 @@
   input {
     border: 1px solid #DADCE0;
     border-radius: 5px;
-    width: calc(100% - 30px);
+    width: calc(100% - 32px);
     font-size: 16px;
     padding: 0 15px;
   }
@@ -94,8 +94,17 @@
   border: 1px solid #DADCE0;
   border-radius: 20px;
   padding: 7px 15px;
+  .user-signin-img {
+    margin-right: 5px;
+    width: 16px;
+  }
+  .down-arrow-img {
+    margin-left: 5px;
+    width: 10px;
+  }
 }
 
 .login-submit-button-box {
   margin-left: auto;
+  cursor: pointer;
 }

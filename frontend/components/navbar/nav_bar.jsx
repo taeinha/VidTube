@@ -17,14 +17,30 @@ class NavBar extends React.Component {
       </div>
     ) : (
       <div>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Log In</Link>
+        <Link to="/login">Sign In</Link>
       </div>
     )
     return (
-      <nav className="nav-bar-container">
+      <>
+        <header className="main-nav-container">
+          <nav className="left-nav">
+            <img src={window.hamburgerIcon} className="small-img convert-gray" />
+            <div>
+              <img src={window.youtubeIcon} className="youtube-logo" />
+            </div>
+          </nav>
+          <nav className="center-nav">
+            <input type="search" />
+          </nav>
+          <nav className="right-nav">
+            <img src={window.addVideoIcon} className="convert-gray"/>
+            <img src={window.appsIcon} className="small-img convert-gray"/>
+            <img src={window.notificationIcon} className="small-img convert-gray"/>
+            <img src={window.mochiIcon} className="profile-picture"/>
+          </nav>
+        </header>
         {renderAuthButtons}
-      </nav>
+      </>
     );
   }
 }

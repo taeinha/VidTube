@@ -1,0 +1,63 @@
+.main-nav-container {
+  box-sizing: border-box;
+  padding: 0 16px;
+  height: 56px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    box-sizing: content-box;
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    margin-right: 16px;
+    color: gray;
+    align-self: center;
+  }
+  .profile-picture {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .convert-gray {
+    filter: invert(30%) sepia(7%) saturate(398%) hue-rotate(165deg) brightness(94%) contrast(98%);
+  }
+
+  .small-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vidtube-logo {
+    width: 100px;
+    height: 32px;
+  }
+
+  .left-nav {
+    display: flex;
+    div {
+      display: flex;
+    }
+  }
+
+  .center-nav {
+    input {
+      width: 575px;
+      height: 26px;
+      border: 1px solid rgb(220, 220, 220);
+      border-radius: 3px;
+      padding-left: 8px;
+    }
+    margin: 0 40px;
+  }
+
+  .right-nav {
+    display: flex;
+  }
+
+}

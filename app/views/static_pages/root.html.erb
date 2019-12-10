@@ -4,7 +4,20 @@
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
+
+    
   </script>
 <% end %>
-
+<script type="text/javascript">
+  window.userProfileURL = "<%= image_url('user-symbol.png') %>";
+  window.angleArrowDown = "<%= image_url('angle-arrow-down.png') %>";
+  window.hamburgerIcon = "<%= image_url('hamburger-icon.png') %>";
+  window.mochiIcon = "<%= image_url('mochi-profile.png') %>";
+  window.addVideoIcon = "<%= image_url('add-video-icon.png') %>";
+  window.appsIcon = "<%= image_url('apps-icon.png') %>";
+  window.notificationIcon = "<%= image_url('notification-icon.png') %>";
+  window.vidtubeLogo = "<%= image_url('vidtube-logo.png') %>";
+  window.youtubeIcon = "<%= image_url('youtube-icon.png') %>";
+  window.vidtubeText = "<%= image_url('vidtube.png') %>";
+</script>
 <main id="root"></main>

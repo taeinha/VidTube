@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNext = this.handleNext.bind(this);
     this.demoUser = this.demoUser.bind(this);
+    this.returnToEmail = this.returnToEmail.bind(this);
   }
 
   handleNext(e) {
@@ -39,6 +40,11 @@ class SessionForm extends React.Component {
   demoUser(e) {
     e.preventDefault();
     this.setState({ email: 'demouser@gmail.com', password: 'abcdef' });
+  }
+
+  returnToEmail(e) {
+    e.preventDefault();
+    this.setState({ validEmail: false });
   }
 
   displaySignup() {
@@ -75,7 +81,11 @@ class SessionForm extends React.Component {
           ) : (
             <header className="session-header login-header">
               <h2>Welcome</h2>
-              <div className="login-email-box">{this.state.email}</div>
+                <div className="login-email-box" onClick={this.returnToEmail}>
+                  <img src={window.userProfileURL} className="user-signin-img"/>
+                  {this.state.email}
+                  <img src={window.angleArrowDown} className="down-arrow-img"/>
+                </div>
             </header>
           ) }
           {!this.state.validEmail ? this._emailInput('login-input') : this._passwordInput('login-input')}

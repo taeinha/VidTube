@@ -8,7 +8,6 @@ import NavBarContainer from './navbar/nav_bar_container';
 const App = (props) => {
   return (
     <div className="app-container">
-      <h1>Welcome to VidTube!</h1>
       <NavBarContainer />
     </div>
   )
