@@ -11,6 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require reset
+ *= require layout
  *= require session_form
  *= require_self
  */
+
+ 

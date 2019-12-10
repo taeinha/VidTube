@@ -35,6 +35,101 @@ class SessionForm extends React.Component {
     };
   }
 
+  displaySignup() {
+    const { formType, clearErrors } = this.props;
+    return (
+      <>
+        <form onSubmit={this.handleSubmit}>
+          <header className="session-header">
+            <h2>Create your Account</h2>
+            <h4>to continue to VidTube</h4>
+          </header>
+          {this._usernameInput('signup-input')}
+          {this._emailInput('signup-input')}
+          {this._passwordInput('signup-input')}
+          <div>
+            <Link to='/login' onClick={clearErrors} className="session-blue-link">Sign In Instead</Link>
+            <button type="submit">{formType}</button>
+          </div>
+        </form>
+      </>
+    )
+  }
+
+  displayLogin() {
+    const { formType, clearErrors } = this.props;
+    return (
+      <>
+        <form onSubmit={this.handleSubmit}>
+          { !this.state.validEmail ? (
+            <header className="session-header">
+              <h2>Sign in</h2>
+              <h4>to continue to VidTube</h4>
+            </header>
+          ) : (
+            <header className="session-header">
+              <h2>Welcome</h2>
+              <div className="login-email-box">{this.state.email}</div>
+            </header>
+          ) }
+          {!this.state.validEmail ? this._emailInput('login-input') : this._passwordInput('login-input')}
+          {!this.state.validEmail ? (
+            <div>
+              <Link to='/signup' onClick={clearErrors} className="session-blue-link">Create account</Link>
+              <button onClick={this.handleNext}>Next</button>
+            </div>
+          ) : (
+            <div>
+              <button type="submit">{formType}</button>
+            </div>
+          )}
+        </form>
+      </>
+    )
+  }
+
+  _usernameInput(style) {
+    return (
+      <label>
+        <input
+          type="text"
+          value={this.state.username}
+          onChange={this.update('username')}
+          className={style}
+          />
+        <span>Username</span>
+      </label>
+    )
+  }
+
+  _emailInput(style) {
+    return (
+      <label>
+        <input
+          type="email"
+          value={this.state.email}
+          onChange={this.update('email')}
+          className={style}
+          />
+        <span>Email</span>
+      </label>
+    )
+  }
+
+  _passwordInput(style) {
+    return (
+      <label>
+        <input
+          type="password"
+          value={this.state.password}
+          onChange={this.update('password')}
+          className={style}
+          />
+        <span>Password</span>
+      </label>
+    )
+  }
+
   render() {
     const { formType, errors, clearErrors } = this.props;
 
@@ -42,56 +137,14 @@ class SessionForm extends React.Component {
       <li key={i}>{error}</li>
     ))
     return (
-      <div className="session-form-container">
+      <div className="session-container">
+        <section className="session-form-container">
+          <ul className="session-errors">
+            {errorLis}
+          </ul>
 
-        <h2>{formType}</h2>
-
-        <ul className="session-errors">
-          {errorLis}
-        </ul>
-
-        <form onSubmit={this.handleSubmit}>
-          { formType === 'Sign Up' ? (
-            <label>
-              Username:
-              <input 
-                type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-              />
-            </label>
-          ) : (null) }
-          { formType === 'Sign Up' || !this.state.validEmail ? (
-            <label>
-              Email:
-              <input 
-                type="email"
-                value={this.state.email}
-                onChange={this.update('email')}
-              />
-            </label>
-          ) : (null) }
-          {formType === 'Sign Up' || this.state.validEmail ? (
-            <label>
-              Password:
-              <input 
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-          ) : (null) }
-          {formType === 'Log In' && !this.state.validEmail ? (
-            <button onClick={this.handleNext}>Next</button>
-          ) : (
-            <button type="submit">{formType}</button>
-          ) }
-          {formType === 'Sign Up' ? (
-              <Link to='/login' onClick={clearErrors}>Log In</Link>
-            ) : (
-              <Link to='/signup' onClick={clearErrors}>Sign Up</Link>
-            ) }
-        </form>
+          {formType === 'Sign Up' ? this.displaySignup() : this.displayLogin()}
+        </section>
       </div>
     );
   }

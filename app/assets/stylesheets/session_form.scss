@@ -1,0 +1,58 @@
+.session-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.session-form-container {
+  border: 1px solid #DADCE0;
+  border-radius: 10px;
+  width: 368px;
+  height: 416px;
+  padding: 48px 40px 36px 40px;
+}
+
+.session-form-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.signup-input {
+  border: 1px solid #DADCE0;
+  height: 36px;
+  border-radius: 5px;
+}
+
+.session-header h2 {
+  font-size: 24px;
+}
+
+.session-header h4 {
+  font-size: 16px;
+}
+
+.session-blue-link {
+  color: #1A73E8;
+  font-weight: 500;
+  
+}
+
+.session-form-container button {
+  background-color: #1A73E8;
+  color: white;
+  width: 88px;
+  height: 36px;
+  border-radius: 5px;
+  text-align: center;
+}
