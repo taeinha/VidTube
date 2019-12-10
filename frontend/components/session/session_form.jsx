@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
 
   handleNext(e) {
@@ -35,6 +36,11 @@ class SessionForm extends React.Component {
     };
   }
 
+  demoUser(e) {
+    e.preventDefault();
+    this.setState({ email: 'demouser@gmail.com', password: 'abcdef' });
+  }
+
   displaySignup() {
     const { formType, clearErrors } = this.props;
     return (
@@ -48,7 +54,7 @@ class SessionForm extends React.Component {
           {this._emailInput('signup-input')}
           {this._passwordInput('signup-input')}
           <div>
-            <Link to='/login' onClick={clearErrors} className="session-blue-link">Sign In Instead</Link>
+            <Link to='/login' onClick={clearErrors} className="session-blue-link">Sign in instead</Link>
             <button type="submit">{formType}</button>
           </div>
         </form>
@@ -62,24 +68,27 @@ class SessionForm extends React.Component {
       <>
         <form onSubmit={this.handleSubmit}>
           { !this.state.validEmail ? (
-            <header className="session-header">
+            <header className="session-header login-header">
               <h2>Sign in</h2>
               <h4>to continue to VidTube</h4>
             </header>
           ) : (
-            <header className="session-header">
+            <header className="session-header login-header">
               <h2>Welcome</h2>
               <div className="login-email-box">{this.state.email}</div>
             </header>
           ) }
           {!this.state.validEmail ? this._emailInput('login-input') : this._passwordInput('login-input')}
           {!this.state.validEmail ? (
-            <div>
-              <Link to='/signup' onClick={clearErrors} className="session-blue-link">Create account</Link>
-              <button onClick={this.handleNext}>Next</button>
-            </div>
+            <>
+              <div>
+                <Link to='/signup' onClick={clearErrors} className="session-blue-link">Create account</Link>
+                <button onClick={this.handleNext}>Next</button>
+              </div>
+              <button onClick={this.demoUser}>Demo User</button>
+            </>
           ) : (
-            <div>
+            <div className="login-submit-button-box">
               <button type="submit">{formType}</button>
             </div>
           )}

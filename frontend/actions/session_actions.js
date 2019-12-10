@@ -20,7 +20,6 @@ const receiveErrors = ({ responseJSON }) => ({
 });
 
 const receiveEmailCheck = ({ validEmail }) => {
-  debugger
   return {
     type: RECEIVE_EMAIL_CHECK,
     validEmail
