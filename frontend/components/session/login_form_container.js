@@ -5,12 +5,14 @@ import { clearErrors } from '../../actions/error_actions';
 
 const msp = state => ({
   errors: state.errors.session,
-  formType: 'Log In'
+  formType: 'Log In',
+  validEmail: state.session.validEmail
 });
 
 const mdp = dispatch => ({
   submitForm: formUser => dispatch(login(formUser)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  checkEmail: email => dispatch(checkEmail(email))
 });
 
 export default connect(msp, mdp)(SessionForm);

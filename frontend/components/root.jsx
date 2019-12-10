@@ -13,7 +13,7 @@ const Root = ({ store }) => {
         <Switch>
           <Route path="/login" component={LoginApp} />
           <Route path="/signup" component={SignupApp} />
-          <AuthRoute path="/" component={App} />
+          <Route path="/" component={App} />
         </Switch>
       </HashRouter>
     </Provider>

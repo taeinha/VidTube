@@ -7,9 +7,20 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      validEmail: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+  }
+
+  handleNext(e) {
+    e.preventDefault();
+    this.props.checkEmail(this.state.email)
+      .then(({validEmail}) => {
+        // debugger;
+        this.setState({ validEmail: validEmail });
+      });
   }
 
   handleSubmit(e) {
@@ -49,33 +60,37 @@ class SessionForm extends React.Component {
                 onChange={this.update('username')}
               />
             </label>
+          ) : (null) }
+          { formType === 'Sign Up' || !this.state.validEmail ? (
+            <label>
+              Email:
+              <input 
+                type="email"
+                value={this.state.email}
+                onChange={this.update('email')}
+              />
+            </label>
+          ) : (null) }
+          {formType === 'Sign Up' || this.state.validEmail ? (
+            <label>
+              Password:
+              <input 
+                type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+              />
+            </label>
+          ) : (null) }
+          {formType === 'Log In' && !this.state.validEmail ? (
+            <button onClick={this.handleNext}>Next</button>
           ) : (
-            null
-          )}
-          <label>
-            Email:
-            <input 
-              type="email"
-              value={this.state.email}
-              onChange={this.update('email')}
-            />
-          </label>
-          <label>
-            Password:
-            <input 
-              type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-          </label>
-          <button type="submit">{formType}</button>
-          {
-            formType === 'Sign Up' ? (
+            <button type="submit">{formType}</button>
+          ) }
+          {formType === 'Sign Up' ? (
               <Link to='/login' onClick={clearErrors}>Log In</Link>
             ) : (
               <Link to='/signup' onClick={clearErrors}>Sign Up</Link>
-            )
-          }
+            ) }
         </form>
       </div>
     );
