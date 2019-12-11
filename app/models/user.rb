@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  username        :string
+#  email           :string
+#  password_digest :string
+#  session_token   :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, uniqueness: true
@@ -5,6 +18,11 @@ class User < ApplicationRecord
 
   attr_reader :password
   after_initialize :ensure_session_token
+
+  has_many :videos,
+    primary_key: :id,
+    foreign_key: :uploader_id,
+    class_name: :Video
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
