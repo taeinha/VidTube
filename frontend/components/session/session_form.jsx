@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import VidtubeLogo from '../logo/logo';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class SessionForm extends React.Component {
       <section className="session-form-signup-container">
         <div>
           <header className="session-header">
-            <img src={window.vidtube} className="vidtube-logo pointer" />
+            < VidtubeLogo />
             <h2>Create your Account</h2>
             <h4>to continue to VidTube</h4>
           </header>
@@ -89,13 +90,13 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           { !this.state.validEmail ? (
             <header className="session-header login-header">
-              <img src={window.vidtube} className="vidtube-logo pointer" />
+              < VidtubeLogo />
               <h2>Sign in</h2>
               <h4>to continue to VidTube</h4>
             </header>
           ) : (
             <header className="session-header login-header">
-              <img src={window.vidtube} className="vidtube-logo pointer" />
+              < VidtubeLogo />
               <h2>Welcome</h2>
                 <div className="login-email-box" onClick={this.returnToEmail}>
                   <img src={window.userProfileURL} className="user-signin-img"/>
@@ -203,6 +204,7 @@ class SessionForm extends React.Component {
     const { errors } = this.props;
     return errors.find(error => error.toLowerCase().includes(field));
   }
+
 
   render() {
     const { formType } = this.props;

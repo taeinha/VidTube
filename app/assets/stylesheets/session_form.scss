@@ -62,6 +62,11 @@
       justify-content: flex-start;
     }
   }
+  .vidtube-logo {
+    width: 75px;
+    height: 24px;
+    margin-bottom: 20px;
+  }
 }
 
 .session-form-login-container {
@@ -138,8 +143,6 @@
   }
 }
 
-
-
 .signup-input {
   height: 36px;
   min-width: 364px;
@@ -159,11 +162,6 @@
   font-size: 16px;
 }
 
-.session-header > img {
-  width: 75px;
-  height: 24px;
-  margin-bottom: 20px;
-}
 
 .session-blue-link {
   color: #1A73E8;

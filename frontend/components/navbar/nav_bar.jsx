@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import VidtubeLogo from '../logo/logo';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class NavBar extends React.Component {
           <nav className="left-nav">
             {/* <img src={window.hamburgerIcon} className="small-img convert-gray" /> */}
             <div>
-              <img src={window.vidtube} className="vidtube-logo pointer" />
+              <VidtubeLogo />
             </div>
           </nav>
           <nav className="center-nav">
