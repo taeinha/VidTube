@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
   # used to verify email
-  def show 
+  def email 
     user = User.find_by_email(params[:email])
     if user.nil?
       render json: ['Email not found!'], status: 422

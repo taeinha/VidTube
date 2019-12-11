@@ -34,8 +34,8 @@
   }
 
   .vidtube-logo {
-    width: 100px;
-    height: 32px;
+    width: 80px;
+    height: 24px;
   }
 
   .left-nav {
@@ -48,7 +48,7 @@
   .center-nav {
     input {
       width: 575px;
-      height: 26px;
+      height: 32px;
       border: 1px solid rgb(220, 220, 220);
       border-radius: 3px;
       padding-left: 8px;
@@ -58,6 +58,23 @@
 
   .right-nav {
     display: flex;
-  }
 
+    a {
+      width: 105px;
+      height: 40px;
+      color: #1A73E8;
+      border: 1px solid #1A73E8;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 0;
+        padding-right: 4px;
+      }
+
+    }
+  }
+  .gearDropDown {
+    
+  }
 }
