@@ -61,20 +61,19 @@ class NavBar extends React.Component {
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
             <img src={window.notificationIcon} className="small-img convert-gray"/> */}
             {currentUser ? 
-            <>
-              
-              <div 
-                onBlur={this.hideDropdown}
-                onFocus={this.showDropdown}
-                tabIndex="0">
-                <img
-                  src={window.mochiIcon}
-                  className="profile-picture pointer"
-                  onMouseDown={this.toggleDropdown}
-                  tabIndex="0"
-                />
-                {gearDropDown}
-              </div>
+              <>
+                <div 
+                  onBlur={this.hideDropdown}
+                  onFocus={this.showDropdown}
+                  tabIndex="0">
+                  <img
+                    src={window.mochiIcon}
+                    className="profile-picture pointer"
+                    onMouseDown={this.toggleDropdown}
+                    tabIndex="0"
+                  />
+                  {gearDropDown}
+                </div>
               </>
               : <Link to="/login">
                   <img src={window.blueUserIcon} />

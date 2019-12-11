@@ -17,4 +17,6 @@ class Video < ApplicationRecord
     primary_key: :id,
     foreign_key: :uploader_id,
     class_name: :User
+
+  has_one_attached :video
 end
