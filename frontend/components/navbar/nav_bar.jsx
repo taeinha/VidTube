@@ -8,27 +8,50 @@ class NavBar extends React.Component {
     this.state = {
       showDropdown: false
     };
+    this.showDropdown = this.showDropdown.bind(this);
+    this.hideDropdown = this.hideDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
+
+  }
+
+
+
+  showDropdown(e) {
+    this.setState({showDropdown: true });
+  }
+
+  hideDropdown(e) {
+    this.setState({ showDropdown: false });
   }
 
   toggleDropdown(e) {
-    this.setState({showDropdown: !this.state.showDropdown});
+    this.setState({ showDropdown: !this.state.showDropdown });
   }
 
   render() {
     const { currentUser, logoutUser } = this.props;
 
     const gearDropDown = this.state.showDropdown ? (
-      <ul className="gearDropDown">
-        <li>Hello {currentUser.username}</li>
-        <li><button onMouseDown={logoutUser}>Log Out</button></li>
-      </ul>
+      <div className="gearDropDown">
+        <header>
+          <img src={window.mochiIcon} className="profile-picture"/>
+          {currentUser.username}
+        </header>
+        <section 
+          onMouseDown={() => {
+            this.setState({ showDropdown: false });
+            logoutUser(); }} 
+          className="sign-out-dropdown">
+          <img src={window.signOutIcon} />
+          <span>Sign Out</span>
+        </section>
+      </div>
     ) : null;
     return (
       <>
         <header className="main-nav-container">
           <nav className="left-nav">
-            <img src={window.hamburgerIcon} className="small-img convert-gray" />
+            {/* <img src={window.hamburgerIcon} className="small-img convert-gray" /> */}
             <div>
               <img src={window.vidtube} className="vidtube-logo" />
             </div>
@@ -41,17 +64,21 @@ class NavBar extends React.Component {
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
             <img src={window.notificationIcon} className="small-img convert-gray"/> */}
             {currentUser ? 
+            <>
+              
               <div 
-                style={{ border: "1px solid #CCC" }}
-                onBlur={() => this.toggleDropdown()}
-                onFocus={() => this.toggleDropdown()}
+                onBlur={this.hideDropdown}
+                onFocus={this.showDropdown}
                 tabIndex="0">
-                <img 
-                  src={window.mochiIcon} 
+                <img
+                  src={window.mochiIcon}
                   className="profile-picture"
+                  onMouseDown={this.toggleDropdown}
+                  tabIndex="0"
                 />
                 {gearDropDown}
               </div>
+              </>
               : <Link to="/login">
                   <img src={window.blueUserIcon} />
                   <span>SIGN IN</span>

@@ -16,6 +16,10 @@ class SessionForm extends React.Component {
     this.returnToEmail = this.returnToEmail.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleNext(e) {
     e.preventDefault();
     this.props.checkEmail(this.state.email)
@@ -60,7 +64,7 @@ class SessionForm extends React.Component {
           {this._emailInput('signup-input')}
           {this._passwordInput('signup-input')}
           <div>
-            <Link to='/login' onClick={clearErrors} className="session-blue-link">Sign in instead</Link>
+            <Link to='/login' className="session-blue-link">Sign in instead</Link>
             <button type="submit">{formType}</button>
           </div>
         </form>
@@ -92,7 +96,7 @@ class SessionForm extends React.Component {
           {!this.state.validEmail ? (
             <>
               <div>
-                <Link to='/signup' onClick={clearErrors} className="session-blue-link">Create account</Link>
+                <Link to='/signup' className="session-blue-link">Create account</Link>
                 <button onClick={this.handleNext}>Next</button>
               </div>
               <button onClick={this.demoUser}>Demo User</button>
@@ -114,9 +118,10 @@ class SessionForm extends React.Component {
           type="text"
           value={this.state.username}
           onChange={this.update('username')}
+          placeholder="Username"
           className={style}
           />
-        <span>Username</span>
+        <span>{this._renderError('username')}</span>
       </label>
     )
   }
@@ -128,9 +133,10 @@ class SessionForm extends React.Component {
           type="email"
           value={this.state.email}
           onChange={this.update('email')}
+          placeholder="Email"
           className={style}
           />
-        <span>Email</span>
+        <span>{this._renderError('email')}</span>
       </label>
     )
   }
@@ -142,26 +148,25 @@ class SessionForm extends React.Component {
           type="password"
           value={this.state.password}
           onChange={this.update('password')}
+          placeholder="Password"
           className={style}
           />
-        <span>Password</span>
+        <span>{this._renderError('password')}</span>
       </label>
     )
   }
 
-  render() {
-    const { formType, errors, clearErrors } = this.props;
+  _renderError(field) {
+    const { errors } = this.props;
+    return errors.find(error => error.toLowerCase().includes(field));
+  }
 
-    const errorLis = errors.map((error, i) => (
-      <li key={i}>{error}</li>
-    ))
+  render() {
+    const { formType } = this.props;
+
     return (
       <div className="session-container">
         <section className="session-form-container">
-          <ul className="session-errors">
-            {errorLis}
-          </ul>
-
           {formType === 'Sign Up' ? this.displaySignup() : this.displayLogin()}
         </section>
       </div>

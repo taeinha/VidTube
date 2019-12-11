@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
   def email 
     user = User.find_by_email(params[:email])
     if user.nil?
-      render json: ['Email not found!'], status: 422
+      render json: ["Couldn't find your email account."], status: 422
     else
       render json: {validEmail: true}, status: 200
     end
@@ -16,7 +16,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
     if @user.nil?
-      render json: ['Invalid User Credentials'], status: 422
+      render json: ['Wrong password. Please try again.'], status: 422
     else
       log_in!(@user)
       render 'api/users/show'

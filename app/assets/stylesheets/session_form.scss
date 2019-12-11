@@ -6,17 +6,21 @@
   align-items: center;
   justify-content: center;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .session-form-container {
   border: 1px solid #DADCE0;
   border-radius: 10px;
-  width: 368px;
-  height: 416px;
+  width: 448px;
+  height: 500px;
   padding: 48px 40px 36px 40px;
 }
 
 .session-form-container > form {
+  ::placeholder {
+    color: #94999D;
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -24,7 +28,7 @@
   header {
     height: 75px;
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 13px;
     }
   }
   div {
@@ -33,14 +37,15 @@
     align-items: center;
   }
   span {
-    color: #80868C;
+    color: #D93025;
   }
   input {
     border: 1px solid #DADCE0;
     border-radius: 5px;
-    width: calc(100% - 32px);
+    width: 100%;
     font-size: 16px;
     padding: 0 15px;
+    margin-bottom: 5px;
   }
 
   input:focus {
@@ -108,3 +113,4 @@
   margin-left: auto;
   cursor: pointer;
 }
+
