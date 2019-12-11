@@ -47,14 +47,33 @@
   }
 
   .center-nav {
+    margin: 0 40px;
+    display: flex;
+    ::placeholder {
+      font-weight: 300;
+    }
     input {
       width: 575px;
       height: 32px;
       border: 1px solid rgb(220, 220, 220);
-      border-radius: 3px;
       padding-left: 8px;
+      box-shadow:inset 0 0 1px 1px rgba(197, 197, 197, 0.212);
     }
-    margin: 0 40px;
+    div {
+      width: 65px;
+      height: 32px;
+      background-color: #F8F8F8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgb(220, 220, 220);
+      border-right: 1px solid rgb(220, 220, 220);
+      border-bottom: 1px solid rgb(220, 220, 220);
+      cursor: pointer;
+      img {
+        margin: 0;
+      }
+    }
   }
 
   .right-nav {
@@ -112,8 +131,5 @@
       }
     }
   }
-  // .gearDropDown:nth-child(n+2) {
-  //   border-top: 1px solid black;
-  //   background-color: yellow;
-  // }
+
 }

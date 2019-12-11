@@ -11,10 +11,7 @@ class NavBar extends React.Component {
     this.showDropdown = this.showDropdown.bind(this);
     this.hideDropdown = this.hideDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
-
   }
-
-
 
   showDropdown(e) {
     this.setState({showDropdown: true });
@@ -57,7 +54,8 @@ class NavBar extends React.Component {
             </div>
           </nav>
           <nav className="center-nav">
-            <input type="search" />
+            <input type="search" placeholder="Search"/>
+            <div><img src={window.searchIcon}/></div>
           </nav>
           <nav className="right-nav">
             <img src={window.addVideoIcon} className="convert-gray"/>
