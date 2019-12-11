@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
       <section className="session-form-signup-container">
         <div>
           <header className="session-header">
-            <img src={window.vidtube} className="vidtube-logo" />
+            <img src={window.vidtube} className="vidtube-logo pointer" />
             <h2>Create your Account</h2>
             <h4>to continue to VidTube</h4>
           </header>
@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
               <p>Use 6 or more characters</p>
             </div>
             <div>
-              <Link to='/login' className="session-blue-link">Sign in instead</Link>
+              <Link to='/login' className="session-blue-link pointer">Sign in instead</Link>
               <button type="submit">{formType}</button>
             </div>
           </form>
@@ -83,19 +83,19 @@ class SessionForm extends React.Component {
   }
 
   displayLogin() {
-    const { formType, clearErrors } = this.props;
+    const { formType } = this.props;
     return (
       <section className="session-form-login-container">
         <form onSubmit={this.handleSubmit}>
           { !this.state.validEmail ? (
             <header className="session-header login-header">
-              <img src={window.vidtube} className="vidtube-logo" />
+              <img src={window.vidtube} className="vidtube-logo pointer" />
               <h2>Sign in</h2>
               <h4>to continue to VidTube</h4>
             </header>
           ) : (
             <header className="session-header login-header">
-              <img src={window.vidtube} className="vidtube-logo" />
+              <img src={window.vidtube} className="vidtube-logo pointer" />
               <h2>Welcome</h2>
                 <div className="login-email-box" onClick={this.returnToEmail}>
                   <img src={window.userProfileURL} className="user-signin-img"/>
@@ -107,7 +107,7 @@ class SessionForm extends React.Component {
           {!this.state.validEmail ? (
             <>
               {this._emailInput('login-input')}
-              <p>Not your computer? Use Guest mode to sign in privately.</p>
+              <p>Not your computer? Use incognito mode to sign in privately.</p>
             </>
           ) : (
             <>
@@ -118,12 +118,12 @@ class SessionForm extends React.Component {
           {!this.state.validEmail ? (
             <>
               <div>
-                <Link to='/signup' className="session-blue-link">Create account</Link>
+                <Link to='/signup' className="session-blue-link pointer">Create account</Link>
                 <button onClick={this.handleNext}>Next</button>
               </div>
               <div className="demo-user-box">
                 {/* <button onClick={this.demoUser}>Demo User</button> */}
-                <a onClick={this.demoUser} className="session-blue-link">Sign In as Demo User</a>
+                <a onClick={this.demoUser} className="session-blue-link pointer">Sign In as Demo User</a>
               </div>
             </>
           ) : (
@@ -137,6 +137,7 @@ class SessionForm extends React.Component {
   }
 
   _usernameInput(style) {
+    const error = this._renderError('username');
     return (
       <label>
         <input
@@ -144,14 +145,20 @@ class SessionForm extends React.Component {
           value={this.state.username}
           onChange={this.update('username')}
           placeholder="Username"
-          className={style}
+          className={`${style} ${error ? "error-input-style" : null}`}
           />
-        <span>{this._renderError('username')}</span>
+        {error && (
+          <div>
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
       </label>
     )
   }
 
   _emailInput(style) {
+    const error = this._renderError('email');
     return (
       <label>
         <input
@@ -159,14 +166,20 @@ class SessionForm extends React.Component {
           value={this.state.email}
           onChange={this.update('email')}
           placeholder="Email"
-          className={style}
+          className={`${style} ${error ? "error-input-style" : null}`}
           />
-        <span>{this._renderError('email')}</span>
+        {error && (
+          <div>
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
       </label>
     )
   }
 
   _passwordInput(style) {
+    const error = this._renderError('password');
     return (
       <label>
         <input
@@ -174,9 +187,14 @@ class SessionForm extends React.Component {
           value={this.state.password}
           onChange={this.update('password')}
           placeholder="Password"
-          className={style}
+          className={`${style} ${error ? "error-input-style" : null}`}
           />
-        <span>{this._renderError('password')}</span>
+        {error && (
+          <div>
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
       </label>
     )
   }

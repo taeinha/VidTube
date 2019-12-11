@@ -69,7 +69,6 @@
       border-top: 1px solid rgb(220, 220, 220);
       border-right: 1px solid rgb(220, 220, 220);
       border-bottom: 1px solid rgb(220, 220, 220);
-      cursor: pointer;
       img {
         margin: 0;
       }
@@ -113,9 +112,6 @@
     section {
       border-top: 1px solid rgb(220, 220, 220);
       font-size: 14px;
-    }
-    .sign-out-dropdown {
-      cursor: pointer;
     }
     section:hover {
       background-color: rgb(240, 240, 240);

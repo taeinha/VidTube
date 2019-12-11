@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { throws } from 'assert';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -38,7 +37,7 @@ class NavBar extends React.Component {
           onMouseDown={() => {
             this.hideDropdown();
             logoutUser(); }} 
-          className="sign-out-dropdown">
+          className="pointer">
           <img src={window.signOutIcon} />
           <span>Sign Out</span>
         </section>
@@ -50,12 +49,12 @@ class NavBar extends React.Component {
           <nav className="left-nav">
             {/* <img src={window.hamburgerIcon} className="small-img convert-gray" /> */}
             <div>
-              <img src={window.vidtube} className="vidtube-logo" />
+              <img src={window.vidtube} className="vidtube-logo pointer" />
             </div>
           </nav>
           <nav className="center-nav">
             <input type="search" placeholder="Search"/>
-            <div><img src={window.searchIcon}/></div>
+            <div className="pointer"><img src={window.searchIcon}/></div>
           </nav>
           <nav className="right-nav">
             <img src={window.addVideoIcon} className="convert-gray"/>
@@ -70,7 +69,7 @@ class NavBar extends React.Component {
                 tabIndex="0">
                 <img
                   src={window.mochiIcon}
-                  className="profile-picture"
+                  className="profile-picture pointer"
                   onMouseDown={this.toggleDropdown}
                   tabIndex="0"
                 />

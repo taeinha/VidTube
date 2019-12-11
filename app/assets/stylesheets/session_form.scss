@@ -56,6 +56,11 @@
       background-color: #287AE6;
       box-shadow: 0 2px 5px rgba(127, 182, 253, 0.7);
     }
+
+    label > div {
+      display: flex;
+      justify-content: flex-start;
+    }
   }
 }
 
@@ -68,6 +73,9 @@
 
   p {
     color: #5f6368
+  }
+  .error-input-style {
+      border: 1px solid #D93025;
   }
 }
 
@@ -95,6 +103,9 @@
       margin-bottom: 40px;
       font-size: 12px;
       font-weight: normal;
+    }
+    .error-input-style {
+      border: 1px solid #D93025;
     }
   }
 
@@ -126,6 +137,8 @@
     }
   }
 }
+
+
 
 .signup-input {
   height: 36px;
@@ -184,11 +197,13 @@
   cursor: pointer;
 }
 
-.demo-user-box {
-  cursor: pointer;
-}
-
 .login-input-password-filler {
   height: 50px;
   order: 5;
+}
+
+.error-icon-img {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
 }
