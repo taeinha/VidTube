@@ -54,36 +54,48 @@ class SessionForm extends React.Component {
   displaySignup() {
     const { formType, clearErrors } = this.props;
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
+      <section className="session-form-signup-container">
+        <div>
           <header className="session-header">
+            <img src={window.vidtube} className="vidtube-logo" />
             <h2>Create your Account</h2>
             <h4>to continue to VidTube</h4>
           </header>
-          {this._usernameInput('signup-input')}
-          {this._emailInput('signup-input')}
-          {this._passwordInput('signup-input')}
-          <div>
-            <Link to='/login' className="session-blue-link">Sign in instead</Link>
-            <button type="submit">{formType}</button>
-          </div>
-        </form>
-      </>
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              {this._usernameInput('signup-input')}
+              {this._emailInput('signup-input')}
+              {this._passwordInput('signup-input')}
+              <p>Use 6 or more characters</p>
+            </div>
+            <div>
+              <Link to='/login' className="session-blue-link">Sign in instead</Link>
+              <button type="submit">{formType}</button>
+            </div>
+          </form>
+        </div>
+        <div className="signup-account-pic-box">
+          <img src={window.accountPic} />
+          <p>One account. All of VidTube working for you.</p>
+        </div>
+      </section>
     )
   }
 
   displayLogin() {
     const { formType, clearErrors } = this.props;
     return (
-      <>
+      <section className="session-form-login-container">
         <form onSubmit={this.handleSubmit}>
           { !this.state.validEmail ? (
             <header className="session-header login-header">
+              <img src={window.vidtube} className="vidtube-logo" />
               <h2>Sign in</h2>
               <h4>to continue to VidTube</h4>
             </header>
           ) : (
             <header className="session-header login-header">
+              <img src={window.vidtube} className="vidtube-logo" />
               <h2>Welcome</h2>
                 <div className="login-email-box" onClick={this.returnToEmail}>
                   <img src={window.userProfileURL} className="user-signin-img"/>
@@ -92,14 +104,27 @@ class SessionForm extends React.Component {
                 </div>
             </header>
           ) }
-          {!this.state.validEmail ? this._emailInput('login-input') : this._passwordInput('login-input')}
+          {!this.state.validEmail ? (
+            <>
+              {this._emailInput('login-input')}
+              <p>Not your computer? Use Guest mode to sign in privately.</p>
+            </>
+          ) : (
+            <>
+              {this._passwordInput('login-input')}
+              <div className="login-input-password-filler"></div>
+            </>
+          )}
           {!this.state.validEmail ? (
             <>
               <div>
                 <Link to='/signup' className="session-blue-link">Create account</Link>
                 <button onClick={this.handleNext}>Next</button>
               </div>
-              <button onClick={this.demoUser}>Demo User</button>
+              <div className="demo-user-box">
+                {/* <button onClick={this.demoUser}>Demo User</button> */}
+                <a onClick={this.demoUser} className="session-blue-link">Sign In as Demo User</a>
+              </div>
             </>
           ) : (
             <div className="login-submit-button-box">
@@ -107,7 +132,7 @@ class SessionForm extends React.Component {
             </div>
           )}
         </form>
-      </>
+      </section>
     )
   }
 
@@ -166,9 +191,7 @@ class SessionForm extends React.Component {
 
     return (
       <div className="session-container">
-        <section className="session-form-container">
-          {formType === 'Sign Up' ? this.displaySignup() : this.displayLogin()}
-        </section>
+        {formType === 'Sign Up' ? this.displaySignup() : this.displayLogin()}
       </div>
     );
   }

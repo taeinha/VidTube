@@ -39,7 +39,7 @@ class NavBar extends React.Component {
         </header>
         <section 
           onMouseDown={() => {
-            this.setState({ showDropdown: false });
+            this.hideDropdown();
             logoutUser(); }} 
           className="sign-out-dropdown">
           <img src={window.signOutIcon} />

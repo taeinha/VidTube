@@ -7,80 +7,149 @@
   justify-content: center;
   font-size: 14px;
   box-sizing: border-box;
+
+  form {
+    ::placeholder {
+      color: #94999D;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    header {
+      height: 75px;
+      h2 {
+        margin-bottom: 13px;
+      }
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    span {
+      color: #D93025;
+    }
+    input {
+      border: 1px solid #DADCE0;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      padding: 0 15px;
+      margin-bottom: 5px;
+    }
+
+    input:focus {
+      border: 2px solid #1A73E8;
+    }
+
+    button {
+      background-color: #1A73E8;
+      color: white;
+      width: 88px;
+      height: 36px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    button:hover {
+      background-color: #287AE6;
+      box-shadow: 0 2px 5px rgba(127, 182, 253, 0.7);
+    }
+  }
 }
 
-.session-form-container {
+.session-form-login-container {
   border: 1px solid #DADCE0;
   border-radius: 10px;
   width: 448px;
   height: 500px;
   padding: 48px 40px 36px 40px;
+
+  p {
+    color: #5f6368
+  }
 }
 
-.session-form-container > form {
-  ::placeholder {
-    color: #94999D;
-  }
+.session-form-signup-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 100%;
-  header {
-    height: 75px;
-    h2 {
-      margin-bottom: 13px;
+  align-items: center;
+  border: 1px solid #DADCE0;
+  border-radius: 10px;
+  width: 748px;
+  height: 558px;
+  padding: 48px 40px 36px 40px;
+  form {
+    width: 370px;
+    height: 370px;
+    padding-right: 40px;
+    // justify-content: center;
+    label {
+      margin-bottom: 32px;
+    }
+    label:last-of-type {
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 8px;
+      margin-bottom: 40px;
+      font-size: 12px;
+      font-weight: normal;
     }
   }
-  div {
+
+  form > div:first-child {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 364px;
+  }
+  
+  .signup-account-pic-box {
+    width: 252px;
+    height: 474px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-  span {
-    color: #D93025;
-  }
-  input {
-    border: 1px solid #DADCE0;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 16px;
-    padding: 0 15px;
-    margin-bottom: 5px;
-  }
-
-  input:focus {
-    border: 2px solid #1A73E8;
-  }
-
-  button {
-    background-color: #1A73E8;
-    color: white;
-    width: 88px;
-    height: 36px;
-    border-radius: 5px;
-    text-align: center;
-  }
-
-  button:hover {
-    background-color: #287AE6;
-    box-shadow: 0 2px 5px rgba(127, 182, 253, 0.7);
+    justify-content: center;
+    margin-left: 35px;
+    img {
+      width: 244px;
+      height: 244px;
+    }
+    p {
+      width: 244px;
+      font-weight: 300;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.3;
+    }
   }
 }
 
 .signup-input {
   height: 36px;
+  min-width: 364px;
 }
 
 .login-input {
+  margin-top: 24px;
   height: 54px;
 }
 
 .session-header h2 {
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .session-header h4 {
   font-size: 16px;
+}
+
+.session-header > img {
+  width: 75px;
+  height: 24px;
+  margin-bottom: 20px;
 }
 
 .session-blue-link {
@@ -107,6 +176,7 @@
     margin-left: 5px;
     width: 10px;
   }
+  cursor: pointer;
 }
 
 .login-submit-button-box {
@@ -114,3 +184,11 @@
   cursor: pointer;
 }
 
+.demo-user-box {
+  cursor: pointer;
+}
+
+.login-input-password-filler {
+  height: 50px;
+  order: 5;
+}
