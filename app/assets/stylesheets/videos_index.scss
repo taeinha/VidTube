@@ -11,14 +11,14 @@
   width: 100%;
   height: 100%;
 
-  .video-item-container {
+  .video-item-container, .hidden-video-item {
     // width: calc((100% / 5));
     height: calc((100% / 4));
-    // min-width: 240px;
-    // max-width: 400px;
+    min-width: 240px;
+    max-width: 400px;
     width: 400px;
     margin: 0 8px 40px 8px;
-    flex: 1 1 19%; // used to make 
+    flex: 1 0 19%; // used to make 
     // flex-grow: 1;
     // flex-basis: 0;
 
@@ -37,5 +37,10 @@
   
     }
   }
+  .hidden-video-item {
+    height: 0px;
+  }
 }
+
+
 

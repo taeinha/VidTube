@@ -24,6 +24,11 @@ class VideoIndex extends React.Component {
     return (
       <section className="inner-videos-container">
         {videoDivs}
+        <div className="hidden-video-item"></div>
+        <div className="hidden-video-item"></div>
+        <div className="hidden-video-item"></div>
+        <div className="hidden-video-item"></div>
+        <div className="hidden-video-item"></div>
       </section>
     )
   }
