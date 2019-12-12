@@ -27,7 +27,7 @@ class Video < ApplicationRecord
 
   def ensure_video
     unless self.video.attached?
-      errors[:video] << "Video must be attached!"
+      errors[:video] << "must be attached!"
     end
   end
 
