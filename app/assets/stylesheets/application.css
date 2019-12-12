@@ -14,6 +14,7 @@
  *= require layout
  *= require navbar
  *= require session_form
+ *= require videos_index
  *= require_self
  */
 

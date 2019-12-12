@@ -4,8 +4,6 @@
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
-
-    
   </script>
 <% end %>
 <script type="text/javascript">
@@ -23,5 +21,9 @@
   window.accountPic = "<%= image_url('account-pic.svg') %>";
   window.searchIcon = "<%= image_url('search-icon.png') %>";
   window.errorIcon = "<%= image_url('error-icon.png') %>";
+  window.dummyChannelPic = "<%= image_url('user-sym-green.png') %>";
+
+  // thumbnails testing, delete later
+  window.thumbnail = "<%= image_url('sample-thumbnail.jpeg') %>";
 </script>
 <main id="root"></main>

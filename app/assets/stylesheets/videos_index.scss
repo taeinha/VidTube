@@ -1,0 +1,41 @@
+.overall-videos-container {
+  width: 100%;
+  height: 100%;
+}
+
+.inner-videos-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #F9F9F9;
+  width: 100%;
+  height: 100%;
+
+  .video-item-container {
+    // width: calc((100% / 5));
+    height: calc((100% / 4));
+    // min-width: 240px;
+    // max-width: 400px;
+    width: 400px;
+    margin: 0 8px 40px 8px;
+    flex: 1 1 19%; // used to make 
+    // flex-grow: 1;
+    // flex-basis: 0;
+
+    .video-thumbnail {
+    }
+
+    .video-item-info {
+      display: flex;
+      flex-direction: row;
+      
+      .channel-image {
+        width: 36px;
+        height: 36px;
+        padding-top: 8px;
+      }
+  
+    }
+  }
+}
+
