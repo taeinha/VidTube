@@ -62,7 +62,7 @@ class SessionForm extends React.Component {
             <h2>Create your Account</h2>
             <h4>to continue to VidTube</h4>
           </header>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} noValidate>
             <div>
               {this._usernameInput('signup-input')}
               {this._emailInput('signup-input')}
@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
     const { formType } = this.props;
     return (
       <section className="session-form-login-container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} noValidate>
           { !this.state.validEmail ? (
             <header className="session-header login-header">
               < VidtubeLogo />
