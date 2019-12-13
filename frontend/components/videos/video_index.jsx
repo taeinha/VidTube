@@ -21,14 +21,15 @@ class VideoIndex extends React.Component {
         key={video.id} />
       )
     )
+
+    const dummyDivs = [1,2,3,4,5].map(el => (
+      <div className="hidden-video-item" key={el}></div>
+    ));
+
     return (
       <section className="inner-videos-container">
         {videoDivs}
-        <div className="hidden-video-item"></div>
-        <div className="hidden-video-item"></div>
-        <div className="hidden-video-item"></div>
-        <div className="hidden-video-item"></div>
-        <div className="hidden-video-item"></div>
+        {dummyDivs}
       </section>
     )
   }

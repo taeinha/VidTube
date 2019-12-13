@@ -13,10 +13,21 @@ export const timeConvert = createdAt => {
 
 
   if (min >= MIN_CONVERSION.year) {
-    return `${Math.floor(min / MIN_CONVERSION.year)} years ago`;
+    const years = Math.floor(min / MIN_CONVERSION.year);
+    return `${years} year${years > 1 ? "s" : ""} ago`;
   } else if (min >= MIN_CONVERSION.month) {
-    return `${Math.floor(min / MIN_CONVERSION.month)} months ago`;
+    const months = Math.floor(min / MIN_CONVERSION.month);
+    return `${months} month${months > 1 ? "s" : ""} ago`;
   } else if (min >= MIN_CONVERSION.week) {
-    return `${Math.floor(min / MIN_CONVERSION.week)} weeks ago`;
+    const weeks = Math.floor(min / MIN_CONVERSION.week);
+    return `${weeks} week${weeks > 1 ? "s" : ""} ago`;
+  } else if (min >= MIN_CONVERSION.day) {
+    const days = Math.floor(min / MIN_CONVERSION.day);
+    return `${days} day${days > 1 ? "s" : ""} ago`;
+  } else if (min >= MIN_CONVERSION.hour) {
+    const hours = Math.floor(min / MIN_CONVERSION.hour);
+    return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+  } else {
+    return `${min} minute${min > 1 ? "s" : ""} ago`;
   }
 };

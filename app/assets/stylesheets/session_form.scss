@@ -9,9 +9,6 @@
   box-sizing: border-box;
 
   form {
-    ::placeholder {
-      color: #94999D;
-    }
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -27,7 +24,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    span {
+    .error-input-warnings span {
       color: #D93025;
     }
     input {
@@ -37,6 +34,7 @@
       font-size: 16px;
       padding: 0 15px;
       margin-bottom: 5px;
+      position: relative;
     }
 
     input:focus {
@@ -82,6 +80,24 @@
   .error-input-style {
       border: 1px solid #D93025;
   }
+
+  label {
+    position: relative;
+  }
+
+  .input-label-float {
+    top: 43px;
+    left: 14px;
+    font-size: 16px;
+    color: #94999D;
+  }
+
+  input:focus ~ .input-label-float,
+  input:valid ~ .input-label-float {
+    top: 17px;
+    left: 14px;
+    font-size: 12px;
+  }
 }
 
 .session-form-signup-container {
@@ -96,9 +112,9 @@
     width: 370px;
     height: 370px;
     padding-right: 40px;
-    // justify-content: center;
     label {
       margin-bottom: 32px;
+      position: relative;
     }
     label:last-of-type {
       margin-bottom: 0;
@@ -140,6 +156,20 @@
       text-align: center;
       line-height: 1.3;
     }
+  }
+
+  .input-label-float {
+    top: 10px;
+    left: 15px;
+    color: #94999D;
+    font-size: 14px;
+  }
+
+  input:focus ~ .input-label-float,
+  input:valid ~ .input-label-float {
+    top: -5px;
+    left: 20px;
+    font-size: 12px;
   }
 }
 
@@ -204,4 +234,20 @@
   width: 13px;
   height: 13px;
   margin-right: 5px;
+}
+
+.input-label-float {
+  position: absolute;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background-color: white;
+  padding: 0 5px;
+}
+
+input:valid ~ .input-label-float {
+  color: #94999D;
+}
+
+input:focus ~ .input-label-float {
+  color: #1A73E8;
 }

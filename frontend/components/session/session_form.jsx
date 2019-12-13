@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
   }
 
   displaySignup() {
-    const { formType, clearErrors } = this.props;
+    const { formType } = this.props;
     return (
       <section className="session-form-signup-container">
         <div>
@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
               {this._usernameInput('signup-input')}
               {this._emailInput('signup-input')}
               {this._passwordInput('signup-input')}
-              <p>Use 6 or more characters</p>
+              <p>Use 6 or more characters with a mix of letters, numbers & symbols</p>
             </div>
             <div>
               <Link to='/login' className="session-blue-link pointer">Sign in instead</Link>
@@ -123,7 +123,6 @@ class SessionForm extends React.Component {
                 <button onClick={this.handleNext}>Next</button>
               </div>
               <div className="demo-user-box">
-                {/* <button onClick={this.demoUser}>Demo User</button> */}
                 <a onClick={this.demoUser} className="session-blue-link pointer">Sign In as Demo User</a>
               </div>
             </>
@@ -145,11 +144,12 @@ class SessionForm extends React.Component {
           type="text"
           value={this.state.username}
           onChange={this.update('username')}
-          placeholder="Username"
           className={`${style} ${error ? "error-input-style" : null}`}
+          required
           />
+        <span className="input-label-float">Username</span>
         {error && (
-          <div>
+          <div className="error-input-warnings">
             <img src={window.errorIcon} className="error-icon-img" />
             <span>{error}</span>
           </div>
@@ -163,14 +163,15 @@ class SessionForm extends React.Component {
     return (
       <label>
         <input
-          type="email"
+          type="text"
           value={this.state.email}
           onChange={this.update('email')}
-          placeholder="Email"
           className={`${style} ${error ? "error-input-style" : null}`}
+          required
           />
+        <span className="input-label-float">Email</span>
         {error && (
-          <div>
+          <div className="error-input-warnings">
             <img src={window.errorIcon} className="error-icon-img" />
             <span>{error}</span>
           </div>
@@ -187,11 +188,12 @@ class SessionForm extends React.Component {
           type="password"
           value={this.state.password}
           onChange={this.update('password')}
-          placeholder="Password"
           className={`${style} ${error ? "error-input-style" : null}`}
+          required
           />
+        <span className="input-label-float">Password</span>
         {error && (
-          <div>
+          <div className="error-input-warnings">
             <img src={window.errorIcon} className="error-icon-img" />
             <span>{error}</span>
           </div>

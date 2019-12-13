@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import { timeConvert } from '../../util/date_util';
 
 const VideoIndexItem = ({ video, user }) => {
   // debugger
@@ -21,7 +20,7 @@ const VideoIndexItem = ({ video, user }) => {
               <div>
                 <span>{`${video.view_count} views`}</span>
                 <span>{" \u2022 "}</span>
-                <span>{video.created_at}</span>
+                <span>{timeConvert(video.created_at)}</span>
               </div>
             </div>
           </div>
