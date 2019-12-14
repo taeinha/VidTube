@@ -6,7 +6,7 @@ const VideoIndexItem = ({ video, user, history }) => {
   return (
     <div className="video-item-container pointer" onClick={() => history.push(`/videos/${video.id}`)}>
       <section className="video-item-inner-container">
-        <img src={window.thumbnail} className="video-thumbnail"/>
+        <img src={window.mochiIcon} className="video-thumbnail"/>
         <div className="video-item-info">
           <img src={window.dummyChannelPic} className="channel-image"/>
           <div className="video-item-text">
