@@ -1,0 +1,1 @@
+json.extract! video, :id, :title, :view_count, :uploader_id, :created_at

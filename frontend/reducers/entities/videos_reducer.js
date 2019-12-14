@@ -7,6 +7,10 @@ const videosReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
       return Object.assign({}, state, action.payload.videos);
+    case RECEIVE_SINGLE_VIDEO:
+      newState = Object.assign({}, state);
+      newState[action.payload.video.id] = action.payload.video;
+      return newState;
     default:
       return state;
   }

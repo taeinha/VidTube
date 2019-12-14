@@ -1,0 +1,116 @@
+.overall-video-show-container {
+  display: flex;
+  padding-top: 24px;
+  background-color: #F9F9F9;
+  box-sizing: content-box;
+
+  .video-show-left-container {
+    width: 70%;
+    height: 100%;
+    padding-right: 24px;
+    margin-left: 24px;
+
+    .video-show-item {
+      height: 512px;
+      width: 100%;
+    }
+
+    .video-show-info-container {
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0 8px 0;
+      
+      h1 {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 4px 0 5px 0;
+      }
+    }
+
+    .video-info-left {
+      font-size: 14px;
+    }
+
+    .video-info-right {
+      font-size: 13px;
+      font-weight: 500;
+      > div {
+        padding-right: 8px;
+        height: 47px;
+      }
+    }
+
+    .video-show-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+      color: #606060;
+      .video-likes-container {
+        display: flex;
+        border-bottom: 2px solid #909090;
+        
+        div > img {
+          width: 23px;
+          height: 23px;
+          padding: 8px;
+          filter: invert(61%) sepia(0%) saturate(4231%) hue-rotate(90deg) brightness(92%) contrast(84%);
+        }
+        div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .video-show-user-container {
+      border-bottom: 1px solid rgb(230, 230, 230);
+
+      .video-show-user {
+        height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          height: 48px;
+          width: 48px;
+          margin-right: 16px;
+        }
+        h2 {
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .video-show-user-left {
+          display: flex;
+          align-items: center;
+        }
+        .video-edit-button {
+          width: 72px;
+          height: 16px;
+          padding: 10px 16px;
+          background-color: #1A73E8;
+          color: white;
+          font-size: 14px;
+        }
+      }
+      .video-show-description {
+        font-size: 14px;
+        height: 89px;
+        margin-top: 15px;
+        display: flex;
+        > div {
+          width: 64px;
+        }
+      }
+    }
+  }
+
+  .video-show-right-container {
+    width: 30%;
+    height: 900px;
+    padding-right: 24px;
+    background-color: lightgoldenrodyellow;
+  }
+}

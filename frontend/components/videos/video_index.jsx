@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
+import { Link } from 'react-router-dom';
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -17,8 +18,10 @@ class VideoIndex extends React.Component {
     const videoDivs = videos.map(video => (
       <VideoIndexItem 
         video={video} 
-        user={users[video.uploader_id]} 
-        key={video.id} />
+        user={users[video.uploader_id]}
+        history={this.props.history}
+        key={video.id}
+      />
       )
     )
 
@@ -37,6 +40,7 @@ class VideoIndex extends React.Component {
   render() {
     return (
       <main className="overall-videos-container">
+        <h1>Recommended</h1>
         {this.displayAllVideos()}
       </main>
     )

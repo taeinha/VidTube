@@ -12,6 +12,11 @@ const receiveAllVideos = (payload) => ({
   payload
 });
 
+const receiveSingleVideo = payload => ({
+  type: RECEIVE_SINGLE_VIDEO,
+  payload
+});
+
 const receiveVideoErrors = errors => ({
   type: RECEIVE_VIDEO_ERRORS,
   errors
@@ -20,4 +25,9 @@ const receiveVideoErrors = errors => ({
 export const fetchAllVideos = () => dispatch => {
   return VideoAPIUtil.fetchAllVideos()
     .then(payload => dispatch(receiveAllVideos(payload)));
+};
+
+export const fetchSingleVideo = (videoId) => dispatch => {
+  return VideoAPIUtil.fetchSingleVideo(videoId)
+    .then(payload => dispatch(receiveSingleVideo(payload)));
 };

@@ -31,3 +31,10 @@ export const timeConvert = createdAt => {
     return `${min} minute${min > 1 ? "s" : ""} ago`;
   }
 };
+
+export const getDate = createdAt => {
+  const date = new Date(createdAt);
+  const dateStr = date.toDateString();
+  const startIdx = dateStr.indexOf(" ") + 1;
+  return dateStr.slice(startIdx);
+};
