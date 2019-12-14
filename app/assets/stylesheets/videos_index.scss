@@ -26,10 +26,10 @@
 
   .video-item-container, .hidden-video-item {
     min-width: 240px;
-    max-width: 400px;
+    // max-width: calc(100% / 4);
     width: 400px;
     margin: 0 8px 40px 8px;
-    flex: 1 1 20%; // grow, shrink, basis
+    flex: 1 1 19%; // grow, shrink, basis
 
     .video-item-info {
       display: flex;
