@@ -8,7 +8,7 @@ const VideoIndexItem = ({ video, user, history }) => {
       <section className="video-item-inner-container">
         <img src={window.thumbnail} className="video-thumbnail"/>
         <div className="video-item-info">
-          <img src={window.dummyChannelPic} className="channel-image"/>
+          <img src={window.dummyChannelPic} className="channel-image profile-picture"/>
           <div className="video-item-text">
             <div>
               <h3>{video.title}</h3>

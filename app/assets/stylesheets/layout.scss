@@ -11,3 +11,8 @@ html, body, #root, .app-container, .overall-videos-container  {
 .pointer {
   cursor: pointer;
 }
+
+.profile-picture {
+    position: relative;
+    border-radius: 50%;
+  }

@@ -65,6 +65,7 @@ class NavBar extends React.Component {
           <nav className="right-nav">
             <img 
               src={window.addVideoIcon}
+              className="convert-gray"
             />
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
             <img src={window.notificationIcon} className="small-img convert-gray"/> */}

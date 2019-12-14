@@ -67,7 +67,7 @@ class VideoShow extends React.Component {
         <div className="video-show-user-container">
           <div className="video-show-user">
             <div className="video-show-user-left">
-              <img src={window.dummyChannelPic} className="channel-image" />
+              <img src={window.dummyChannelPic} className="channel-image profile-picture" />
               <div>
                 <h2>{users[video.uploader_id].username}</h2>
               </div>
