@@ -95,10 +95,10 @@ class VideoShow extends React.Component {
 
   display() {
     return (
-      <>
+      <section className="second-outer-video-show-container">
         {this.displayLeft()}
         {this.displayRight()}
-      </>
+      </section>
     )
   }
 

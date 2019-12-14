@@ -1,14 +1,18 @@
 .overall-video-show-container {
-  display: flex;
-  padding-top: 24px;
   background-color: #F9F9F9;
-  box-sizing: content-box;
 
+  .second-outer-video-show-container{
+    display: flex;
+    padding-top: 24px;
+    box-sizing: content-box;
+    max-width: 90%;
+    min-width: 1280px;
+    margin: 0 auto;
+  }
   .video-show-left-container {
     width: 70%;
     height: 100%;
     padding-right: 24px;
-    margin-left: 24px;
 
     .video-show-item-container {
       position: relative;
