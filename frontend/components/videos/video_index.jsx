@@ -40,8 +40,10 @@ class VideoIndex extends React.Component {
   render() {
     return (
       <main className="overall-videos-container">
-        <h1>Recommended</h1>
-        {this.displayAllVideos()}
+        <section className="outer-videos-container">
+          <h1>Recommended</h1>
+          {this.displayAllVideos()}
+        </section>
       </main>
     )
   }
