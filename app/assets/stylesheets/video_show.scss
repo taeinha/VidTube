@@ -1,16 +1,17 @@
 .overall-video-show-container {
   background-color: #F9F9F9;
+  // box-sizing: content-box;
 
   .second-outer-video-show-container{
     display: flex;
     padding-top: 24px;
-    box-sizing: content-box;
-    max-width: 90%;
+    max-width: 91%;
     min-width: 1280px;
     margin: 0 auto;
   }
   .video-show-left-container {
-    width: 70%;
+    // width: 100%;
+    width: 100%;
     height: 100%;
     padding-right: 24px;
 
@@ -39,7 +40,7 @@
       h1 {
         font-size: 18px;
         font-weight: 400;
-        margin: 4px 0 5px 0;
+        margin: 4px 0 0 0;
       }
     }
 
@@ -108,12 +109,13 @@
           background-color: #1A73E8;
           color: white;
           font-size: 14px;
+          border-radius: 2px;
         }
       }
       .video-show-description {
         font-size: 14px;
         height: 89px;
-        margin-top: 15px;
+        // margin-top: 5px;
         display: flex;
         > div {
           width: 64px;
@@ -123,8 +125,10 @@
   }
 
   .video-show-right-container {
-    width: 30%;
+    min-width: 405px;
     height: 900px;
+    // padding-right: 24px;
+    box-sizing: border-box;
     padding-right: 24px;
     background-color: lightgoldenrodyellow;
   }
