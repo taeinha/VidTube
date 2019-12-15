@@ -12,19 +12,23 @@ export const fetchSingleVideo = id => (
   })
 );
 
-export const createVideo = video => (
-  $.ajax({
+export const createVideo = formData => {
+  return $.ajax({
     method: "POST",
     url: '/api/videos/',
-    data: { video }
+    data: formData,
+    contentType: false,
+    processData: false
   })
-);
+};
 
-export const updateVideo = video => (
+export const updateVideo = (formData, videoId) => (
   $.ajax({
     method: "PATCH",
-    url: `/api/videos/${video.id}`,
-    data: { video }
+    url: `/api/videos/${videoId}`,
+    data: formData,
+    contentType: false,
+    processData: false
   })
 );
 

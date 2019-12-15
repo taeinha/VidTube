@@ -33,7 +33,7 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
   requestVideo: (videoId) => dispatch(fetchSingleVideo(videoId)),
-  submitVideo: (video) => dispatch(updateVideo(video)),
+  submitVideo: (formData, videoId) => dispatch(updateVideo(formData, videoId)),
   removeVideo: (videoId) => dispatch(deleteVideo(videoId)),
   hideModal: () => dispatch(hideModal())
 });

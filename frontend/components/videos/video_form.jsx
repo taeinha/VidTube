@@ -7,11 +7,34 @@ class VideoForm extends React.Component {
     this.state = this.props.video;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleSubmit(e) {
+    const { formType } = this.props;
     e.preventDefault();
-    this.props.submitVideo(this.state).then(this.props.hideModal);
+    const formData = new FormData();
+    formData.append('video[title]', this.state.title);
+    formData.append('video[description]', this.state.description);
+    if (this.state.thumbnailFile) {
+      formData.append('video[thumbnail_file]', this.state.thumbnailFile);
+    }
+    if (formType === 'Upload video') {
+      this.props.submitVideo(formData).then(this.props.hideModal);
+    } else {
+      this.props.submitVideo(formData, this.state.id).then(this.props.hideModal);
+    }
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({thumbnailFile: file, thumbnailUrl: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleDelete(e) {
@@ -66,12 +89,18 @@ class VideoForm extends React.Component {
   }
 
   _thumbnailInput() {
+    const preview = this.state.thumbnailUrl ? 
+      <img src={this.state.thumbnailUrl} /> : null;
     return (
       <label className="video-form-thumbnail-container">
         <h2>Thumbnail</h2>
         <p>Upload a picture that shows what's in your video. A good thumbnail stands out and draws viewer's attention.</p>
         <div>
-          <img src={window.thumbnail} alt=""/>
+          <input 
+            type="file"
+            onChange={this.handleFile}
+          />
+          {preview}
         </div>
       </label>
     )

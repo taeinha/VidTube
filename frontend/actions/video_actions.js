@@ -35,13 +35,13 @@ export const fetchSingleVideo = (videoId) => dispatch => {
     .then(payload => dispatch(receiveSingleVideo(payload)));
 };
 
-export const createVideo = video => dispatch => {
-  return VideoAPIUtil.createVideo(video)
+export const createVideo = formData => dispatch => {
+  return VideoAPIUtil.createVideo(formData)
     .then(payload => dispatch(receiveSingleVideo(payload)));
 };
 
-export const updateVideo = video => dispatch => {
-  return VideoAPIUtil.updateVideo(video)
+export const updateVideo = (formData, videoId) => dispatch => {
+  return VideoAPIUtil.updateVideo(formData, videoId)
     .then(payload => dispatch(receiveSingleVideo(payload)));
 };
 

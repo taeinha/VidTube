@@ -7,13 +7,15 @@ const msp = (state) => ({
   video: {
     title: '',
     description: '',
+    thumbnailFile: null,
+    thumbnailUrl: null
   },
   currentUser: state.session.id,
   formType: "Upload video"
 });
 
 const mdp = dispatch => ({
-  submitVideo: (video) => dispatch(createVideo(video)),
+  submitVideo: (formData) => dispatch(createVideo(formData)),
   hideModal: () => dispatch(hideModal())
 });
 
