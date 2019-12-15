@@ -16,6 +16,8 @@
  *= require session_form
  *= require videos_index
  *= require video_show
+ *= require video_form
+ *= require modal
  *= require_self
  */
 

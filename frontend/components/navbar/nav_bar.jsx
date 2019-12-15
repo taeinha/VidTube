@@ -47,10 +47,10 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, showModal } = this.props;
 
     return (
-      <>
+      <div className="overall-main-nav-container">
         <header className="main-nav-container">
           <nav className="left-nav">
             {/* <img src={window.hamburgerIcon} className="small-img convert-gray" /> */}
@@ -66,7 +66,8 @@ class NavBar extends React.Component {
             <img 
               src={window.addVideoIcon}
               className="convert-gray"
-            />
+              onClick={() => showModal({type: 'create_video'})}
+          />
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
             <img src={window.notificationIcon} className="small-img convert-gray"/> */}
             {currentUser ? 
@@ -90,7 +91,7 @@ class NavBar extends React.Component {
                 </Link> }
           </nav>
         </header>
-      </>
+      </div>
     );
   }
 }

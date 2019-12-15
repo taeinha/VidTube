@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import VideoShow from './video_show';
 import { fetchSingleVideo } from '../../actions/video_actions';
+import { showModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
   const videoId = ownProps.match.params.videoId;
@@ -17,7 +18,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => ({
-  fetchSingleVideo: (videoId) => dispatch(fetchSingleVideo(videoId))
+  fetchSingleVideo: (videoId) => dispatch(fetchSingleVideo(videoId)),
+  showModal: modal => dispatch(showModal(modal))
 });
 
 export default connect(msp, mdp)(VideoShow);

@@ -31,7 +31,7 @@ class Api::VideosController < ApplicationController
   def destroy
     @video = Video.find(params[:id])
     @video.destroy
-    # may not work, how is it going to show after deleting?
+
     render :show
   end
 

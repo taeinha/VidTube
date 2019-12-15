@@ -13,6 +13,19 @@ html, body, #root, .app-container, .overall-videos-container  {
 }
 
 .profile-picture {
-    position: relative;
-    border-radius: 50%;
-  }
+  position: relative;
+  border-radius: 50%;
+}
+
+.convert-gray {
+  filter: invert(37%) sepia(0%) saturate(0%) hue-rotate(108deg) brightness(98%) contrast(88%);
+}
+
+.convert-black:hover {
+  filter: invert(0%) sepia(3%) saturate(7493%) hue-rotate(12deg) brightness(107%) contrast(96%);
+}
+
+.nav-bar-hidden-div {
+  height: 56px;
+  display: block;
+}

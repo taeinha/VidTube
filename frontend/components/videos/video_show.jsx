@@ -14,11 +14,16 @@ class VideoShow extends React.Component {
   }
 
   _showEditButton() {
-    const { currentUser, video } = this.props;
+    const { currentUser, video, showModal } = this.props;
     const editButton = currentUser === video.uploader_id ? (
-      <Link to="#" className="video-edit-button">
+      <div 
+        className="video-edit-button pointer" 
+        onClick={() => showModal(
+          {type: 'edit_video', 
+          currentVideo: this.props.match.params.videoId})}
+      >
         <span>EDIT VIDEO</span>
-      </Link>
+      </div>
     ) : null;
 
     return (

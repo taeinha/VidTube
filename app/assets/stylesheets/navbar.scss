@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 6;
 
   img {
     box-sizing: content-box;
@@ -19,10 +22,6 @@
   .profile-picture {
     width: 32px;
     height: 32px;
-  }
-
-  .convert-gray {
-    filter: invert(37%) sepia(0%) saturate(0%) hue-rotate(108deg) brightness(98%) contrast(88%);
   }
 
   .small-img {

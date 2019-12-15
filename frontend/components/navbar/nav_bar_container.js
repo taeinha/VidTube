@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import NavBar from './nav_bar';
+import { showModal } from '../../actions/modal_actions';
 
 const msp = state => {
   const user = state.entities.users[state.session.id];
@@ -10,7 +11,8 @@ const msp = state => {
 };
 
 const mdp = dispatch => ({
-  logoutUser: () => dispatch(logout())
+  logoutUser: () => dispatch(logout()),
+  showModal: modal => dispatch(showModal(modal))
 });
 
 export default connect(msp, mdp)(NavBar);

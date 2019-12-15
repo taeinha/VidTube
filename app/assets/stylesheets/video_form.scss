@@ -1,0 +1,133 @@
+.main-outer-video-form {
+  width: 960px;
+  height: 605px;
+  background-color: white;
+  border-radius: 6px;
+  .video-form-title-row {
+    height: 64px;
+    padding: 0 16px 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #DADCE0;
+    h1 {
+      font-size: 20px;
+      font-weight: 500px;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .video-form-container {
+    height: 500px;
+    padding: 8px 48px 24px 48px;
+    overflow-y: scroll;
+    // display: flex;
+    // flex-direction: column;
+    .video-form-details-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      height: 32px;
+      h1 {
+        font-size: 25px;
+      }
+
+      .video-delete-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(180, 1, 1);
+        color: white;
+        padding: 10px 0px;
+        height: 16px;
+        width: 72px;
+        font-size: 14px;
+        border-radius: 2px;
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      ::placeholder {
+        color: #94999D;
+        font-weight: 300;
+      }
+      textarea {
+        border: 1px solid #DADCE0;
+        border-radius: 5px;
+        width: 100%;
+        height: 50px;
+        font-size: 15px;
+        padding: 30px 12px 11px 12px;
+        resize: none;
+      }
+
+      label {
+        position: relative;
+        width: 536px;
+        margin-bottom: 20px;
+        
+        .input-label-float {
+          font-size: 12px;
+          font-weight: 400;
+          position: absolute;
+          top: 10px;
+          left: 8px;
+          color: #94999D;
+          pointer-events: none;
+        }
+
+        .text-character-remaining {
+          position: absolute;
+          bottom: 15px;
+          right: -15px;
+          font-size: 12px;
+          font-weight: 400;
+          color: #94999D;
+          display: none;
+        }
+
+        textarea:focus {
+          border: 1px solid #1A73E8;
+
+          ~ .text-character-remaining {
+            display: inline;
+          }
+
+          ~ .input-label-float {
+            color: #1A73E8;
+          }
+        }
+
+        .video-form-description {
+          height: 152px;
+        }
+      }
+
+      .video-form-thumbnail-container {
+        h2 {
+          font-size: 15px;
+          font-weight: 500px;
+        }
+        p {
+          color: #94999D;
+          font-size: 13px;
+          font-weight: 400;
+        }
+      }
+
+      .video-form-submit-box {
+        position: fixed;
+        height: 30px;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}

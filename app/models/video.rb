@@ -13,7 +13,7 @@
 
 class Video < ApplicationRecord
 
-  validates :title, :description, :view_count, :uploader_id, presence: true
+  validates :title, :view_count, :uploader_id, presence: true
 
   # validate :ensure_video
   # validate :ensure_thumbnail
