@@ -1,20 +1,22 @@
 import { connect } from 'react-redux';
 import VideoForm from './video_form';
 import React from 'react';
-import { fetchSingleVideo, updateVideo } from '../../actions/video_actions';
+import { fetchSingleVideo, updateVideo, deleteVideo } from '../../actions/video_actions';
 import { hideModal } from '../../actions/modal_actions';
 
 class EditVideoForm extends React.Component {
 
   render() {
-    const { video, currentUser, formType, submitVideo, hideModal } = this.props;
-    if (!video) return null;
+    const { video, currentUser, formType, submitVideo, hideModal, removeVideo } = this.props;
+    if (!video || !currentUser) return null;
+    if (video.uploader_id !== currentUser) return null;
     return (
       <VideoForm 
         video={video}
         currentUser={currentUser}
         formType={formType}
         submitVideo={submitVideo}
+        removeVideo={removeVideo}
         hideModal={hideModal}
       />
     );
@@ -32,6 +34,7 @@ const msp = (state) => {
 const mdp = dispatch => ({
   requestVideo: (videoId) => dispatch(fetchSingleVideo(videoId)),
   submitVideo: (video) => dispatch(updateVideo(video)),
+  removeVideo: (videoId) => dispatch(deleteVideo(videoId)),
   hideModal: () => dispatch(hideModal())
 });
 

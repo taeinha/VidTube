@@ -1,15 +1,26 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class VideoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.video;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitVideo(this.state).then(this.props.hideModal);
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    let that = this;
+    this.props.removeVideo(this.state.id).then(() => {
+      that.props.history.push('/');
+      that.props.hideModal();
+    });
   }
 
   update(field) {
@@ -71,6 +82,7 @@ class VideoForm extends React.Component {
     const display = formType === 'Edit video' ? (
       <div
         className="video-delete-button pointer"
+        onClick={this.handleDelete}
       >
         <span>DELETE VIDEO</span>
       </div>
@@ -145,4 +157,4 @@ class VideoForm extends React.Component {
   }
 }
 
-export default VideoForm;
+export default withRouter(VideoForm);
