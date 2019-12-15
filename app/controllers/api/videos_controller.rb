@@ -22,7 +22,7 @@ class Api::VideosController < ApplicationController
   end
 
   def update
-    @video = Video.find(params[:id])
+    @video = current_user.videos.find(params[:id])
     if @video.update(video_params)
       render :show
     else
@@ -32,6 +32,10 @@ class Api::VideosController < ApplicationController
 
   def destroy
     @video = Video.find(params[:id])
+    unless @video.uploader_id == current_user.id
+      render json: ['You are not the uploader of this video!'], status: 422
+      return
+    end
     @video.destroy
 
     render :show

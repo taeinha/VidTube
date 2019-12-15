@@ -25,7 +25,7 @@ class Video < ApplicationRecord
     class_name: :User
 
   # has_one_attached :video_file
-  # has_one_attached :thumbnail_file
+  has_one_attached :thumbnail_file
 
   # def ensure_video
   #   unless self.video_file.attached?
@@ -33,11 +33,11 @@ class Video < ApplicationRecord
   #   end
   # end
 
-  # def ensure_thumbnail
-  #   unless self.thumbnail_file.attached?
-  #     errors[:thumbnail_file] << "thumbnail must be attached!"
-  #   end
-  # end
+  def ensure_thumbnail
+    unless self.thumbnail_file.attached?
+      errors[:thumbnail_file] << "thumbnail must be attached!"
+    end
+  end
 
   def ensure_view_count
     self.view_count ||= 0
