@@ -6,7 +6,7 @@ import { hideModal } from '../../actions/modal_actions';
 const msp = (state) => ({
   video: {
     title: '',
-    description: ''
+    description: '',
   },
   currentUser: state.session.id,
   formType: "Upload video"

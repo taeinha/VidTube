@@ -7,7 +7,7 @@ const modalReducer = (state = {}, action) => {
     case SHOW_MODAL:
       return action.modal;
     case HIDE_MODAL:
-      return null;
+      return {};
     default:
       return state;
   }

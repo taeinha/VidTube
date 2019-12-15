@@ -66,7 +66,9 @@ class NavBar extends React.Component {
             <img 
               src={window.addVideoIcon}
               className="convert-gray"
-              onClick={() => showModal({type: 'create_video'})}
+              onClick={() => {
+                if (currentUser) showModal({type: 'create_video'})
+              }}
           />
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
             <img src={window.notificationIcon} className="small-img convert-gray"/> */}

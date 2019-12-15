@@ -23,8 +23,7 @@
     height: 500px;
     padding: 8px 48px 24px 48px;
     overflow-y: scroll;
-    // display: flex;
-    // flex-direction: column;
+
     .video-form-details-row {
       display: flex;
       justify-content: space-between;
@@ -44,7 +43,7 @@
         color: white;
         padding: 10px 0px;
         height: 16px;
-        width: 72px;
+        width: 106px;
         font-size: 14px;
         border-radius: 2px;
       }
@@ -53,21 +52,26 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      padding-bottom: 30px;
 
       ::placeholder {
         color: #94999D;
         font-weight: 300;
       }
       textarea {
+        box-sizing: border-box;
         border: 1px solid #DADCE0;
         border-radius: 5px;
         width: 100%;
-        height: 50px;
+        height: 81px;
         font-size: 15px;
         padding: 30px 12px 11px 12px;
         resize: none;
       }
-
+      // div {
+      //   display: block;
+      //   height: 100%;
+      // }
       label {
         position: relative;
         width: 536px;
@@ -86,7 +90,7 @@
         .text-character-remaining {
           position: absolute;
           bottom: 15px;
-          right: -15px;
+          right: 10px;
           font-size: 12px;
           font-weight: 400;
           color: #94999D;
@@ -111,6 +115,7 @@
       }
 
       .video-form-thumbnail-container {
+        line-height: 20px;
         h2 {
           font-size: 15px;
           font-weight: 500px;
@@ -119,15 +124,93 @@
           color: #94999D;
           font-size: 13px;
           font-weight: 400;
+          margin-bottom: 8px;
+        }
+        img {
+          width: 127px;
+          height: 70px;
         }
       }
 
       .video-form-submit-box {
         position: fixed;
-        height: 30px;
+        height: 53px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: white;
         bottom: 0;
         right: 0;
+        border-top: 1px solid #DADCE0;
+        button {
+          box-sizing: border-box;
+          height: 36px;
+          background-color: #1A73E8;
+          color: white;
+          padding: 0px 16px;
+          border-radius: 2px;
+          font-size: 14px;
+          font-weight: 500;
+          margin-right: 8px;
+        }
       }
+      .video-form-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .video-form-content-right {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 20px;
+          
+          > div:first-child {
+            width: 136px;
+            height: 136px;
+            border-radius: 50%;
+            background-color: #EBEBEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 23px;
+          }
+          img {
+            width: 75px;
+            height: 75px;
+            filter: invert(72%) sepia(2%) saturate(13%) hue-rotate(354deg) brightness(82%) contrast(83%);
+          }
+          p:first-of-type {
+            font-size: 15px;
+            line-height: 20px;
+          }
+          p:last-of-type {
+            font-size: 13px;
+            color: #94999D;
+            line-height: 20px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+          }
+          .video-form-select-file-button {
+            box-sizing: border-box;
+            height: 36px;
+            background-color: #1A73E8;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+        .video-form-content-left {
+          display: flex;
+          flex-direction: column;
+          margin-right: 12px;
+        }
+      }
+
     }
   }
 }

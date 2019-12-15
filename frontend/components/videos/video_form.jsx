@@ -47,7 +47,6 @@ class VideoForm extends React.Component {
           className="video-form-description"
           placeholder="Tell viewers about your video"
           maxLength="5000"
-          required
         />
         <span className="input-label-float">Description</span>
         <span className="text-character-remaining">{description.length}/5000</span>
@@ -73,7 +72,7 @@ class VideoForm extends React.Component {
       <div
         className="video-delete-button pointer"
       >
-        <span>DELETE</span>
+        <span>DELETE VIDEO</span>
       </div>
     ) : null;
     return (
@@ -83,6 +82,27 @@ class VideoForm extends React.Component {
     )
   }
 
+  _displayUpload() {
+    const { formType } = this.props;
+    const display = formType === 'Upload video' ? (
+      <>
+        <div className="pointer">
+          <img src={window.uploadIcon} />
+        </div>
+        <p>Drag and drop a file you want to upload</p>
+        <p>Your video will be public when you publish it</p>
+        <div className="video-form-select-file-button pointer">
+          SELECT FILE
+        </div>
+      </>
+    ) : null;
+
+    return (
+      <>
+        {display}
+      </>
+    )
+  }
   render() {
     const { formType, hideModal } = this.props;
 
@@ -103,9 +123,16 @@ class VideoForm extends React.Component {
               {this._deleteButton()}
             </div>
             <form onSubmit={this.handleSubmit}>
-              {this._titleInput()}
-              {this._descriptionInput()}
-              {this._thumbnailInput()}
+              <div className="video-form-content">
+                <div className="video-form-content-left">
+                  {this._titleInput()}
+                  {this._descriptionInput()}
+                  {this._thumbnailInput()}
+                </div>
+                <div className="video-form-content-right">
+                  {this._displayUpload()}
+                </div>
+              </div>
               <div className="video-form-submit-box">
                 <button type="submit">DONE</button>
               </div>
