@@ -8,7 +8,7 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    videos = Video.all
+    @videos = Video.all
       .includes(:uploader)
       .where.not(id: params[:id])
       .order("RANDOM()")
