@@ -10,8 +10,9 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_ALL_VIDEOS:
       return Object.assign({}, state, action.payload.users);
     case RECEIVE_SINGLE_VIDEO:
-      newState = Object.assign({}, state);
-      newState[action.payload.user.id] = action.payload.user;
+      const { users, user } = action.payload;
+      newState = Object.assign({}, state, users);
+      newState[user.id] = user;
       return newState;
     default:
       return state;

@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
 
   return {
     video: state.entities.videos[videoId],
-    videos: Object.values(videoState),
+    videos: videoState,
     users: state.entities.users,
     currentUser: state.session.id
   };

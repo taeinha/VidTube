@@ -8,8 +8,9 @@ const videosReducer = (state = {}, action) => {
     case RECEIVE_ALL_VIDEOS:
       return Object.assign({}, state, action.payload.videos);
     case RECEIVE_SINGLE_VIDEO:
-      newState = Object.assign({}, state);
-      newState[action.payload.video.id] = action.payload.video;
+      const { videos, video } = action.payload;
+      newState = Object.assign({}, state, videos);
+      newState[video.id] = video;
       return newState;
     case REMOVE_VIDEO:
       newState = Object.assign({}, state);

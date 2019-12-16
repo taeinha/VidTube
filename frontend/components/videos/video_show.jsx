@@ -1,16 +1,24 @@
 import React from 'react';
 import { getDate } from '../../util/date_util';
 import { Link } from 'react-router-dom';
+import VideoShowItem from './video_show_item';
 
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.display = this.display.bind(this);
   }
 
   componentDidMount() {
+    // debugger
     this.props.fetchSingleVideo(this.props.match.params.videoId);
-    this.display = this.display.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.videoId !== prevProps.match.params.videoId) {
+      this.props.fetchSingleVideo(this.props.match.params.videoId);
+    }
   }
 
   _showEditButton() {
@@ -99,9 +107,27 @@ class VideoShow extends React.Component {
   }
 
   displayRight() {
+    if (!this.props.video.showVideos) return null;
+    let that = this;
+    const videoDivs = this.props.video.showVideos.map((videoId, i) => {
+      const vid = that.props.videos[videoId];
+      const user = that.props.users[vid.uploader_id];
+      return (
+        <section key={i}>
+          <VideoShowItem 
+            key={videoId} 
+            video={vid} 
+            history={that.props.history}
+            user={user}
+          />
+          {i === 0 ? <div key={i} className="video-show-fake-div"></div> : null}
+        </section>
+      )
+    })
     return (
       <section className="video-show-right-container">
-        TBD
+        <p>Up next</p>
+        {videoDivs}
       </section>
     )
   }
