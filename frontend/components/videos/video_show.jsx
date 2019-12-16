@@ -39,13 +39,21 @@ class VideoShow extends React.Component {
     return (
       <section className="video-show-left-container">
         <div className="video-show-item-container">
-          <iframe 
+          {/* <iframe 
             className="video-show-item"
             src="https://www.youtube.com/embed/_9FEBATgh78" 
             frameBorder="0" 
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen>
-          </iframe>
+          </iframe> */}
+          <video 
+            controls="controls" 
+            className="video-show-item"
+            key={video.videoUrl}
+            autoPlay
+          >
+            <source src={video.videoUrl} type="video/mp4"/>
+          </video>
         </div>
         <div className="video-show-info-container">
           <h1>{video.title}</h1>

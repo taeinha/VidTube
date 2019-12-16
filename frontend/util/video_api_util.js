@@ -19,7 +19,7 @@ export const createVideo = formData => {
     data: formData,
     contentType: false,
     processData: false
-  })
+  });
 };
 
 export const updateVideo = (formData, videoId) => (

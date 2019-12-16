@@ -6,7 +6,9 @@ const VideoIndexItem = ({ video, user, history }) => {
   return (
     <div className="video-item-container pointer" onClick={() => history.push(`/videos/${video.id}`)}>
       <section className="video-item-inner-container">
-        <img src={video.thumbnailUrl} className="video-thumbnail"/>
+        <div className="video-thumbnail-container aspect-ratio-container">
+          <img src={video.thumbnailUrl} className="video-thumbnail aspect-ratio-container-inner"/>
+        </div>
         <div className="video-item-info">
           <img src={window.dummyChannelPic} className="channel-image profile-picture"/>
           <div className="video-item-text">
@@ -33,7 +35,3 @@ const VideoIndexItem = ({ video, user, history }) => {
 
 
 export default VideoIndexItem;
-
-{/* <video width="300" controls="controls" preload="metadata">
-        <source src={video.videoUrl} type="video/mp4"/>
-      </video> */}

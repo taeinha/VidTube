@@ -19,21 +19,29 @@ tae = User.create(username: "Tae Ha", email: "taeinha@gmail.com", password: "123
 video_1 = Video.new(title: "Abstract Streamers - a fancy abstract 3D background", description: "Abstract Streamers are fun!!! Please like and leave a comment! Sample video sourced from https://www.videvo.net/", view_count: 100, uploader_id: demouser.id )
 thumbnail_1 = open('https://vidtube-seeds.s3.amazonaws.com/01_Abstract_streamers.jpg')
 video_1.thumbnail_file.attach(io: thumbnail_1, filename: '01_Abstract_streamers.jpg')
+video_file_1 = open('https://vidtube-seeds.s3.amazonaws.com/test-video.mp4')
+video_1.video_file.attach(io: video_file_1, filename: 'test-video.mp4')
 video_1.save
 
 video_2 = Video.new(title: "Bubbles in slow motion - MUST WATCH!!", description: "Bubbles in slow motion are cool. Please like and leave a comment! Sample video sourced from https://www.videvo.net/", view_count: 335, uploader_id: demouser.id )
 thumbnail_2 = open('https://vidtube-seeds.s3.amazonaws.com/02_bubbles_slow_motion.jpg')
 video_2.thumbnail_file.attach(io: thumbnail_2, filename: '02_bubbles_slow_motion.jpg')
+video_file_2 = open('https://vidtube-seeds.s3.amazonaws.com/test-video.mp4')
+video_2.video_file.attach(io: video_file_2, filename: 'test-video.mp4')
 video_2.save
 
 video_3 = Video.new(title: "Candle on a Green Screen - Random video", description: "Candle on a Green Screen. Please like and leave a comment! Sample video sourced from https://www.videvo.net/", view_count: 10000, uploader_id: demouser.id )
 thumbnail_3 = open('https://vidtube-seeds.s3.amazonaws.com/03_candle_on_green_screen.jpg')
 video_3.thumbnail_file.attach(io: thumbnail_3, filename: '03_candle_on_green_screen.jpg')
+video_file_3 = open('https://vidtube-seeds.s3.amazonaws.com/test-video.mp4')
+video_3.video_file.attach(io: video_file_3, filename: 'test-video.mp4')
 video_3.save
 
 video_4 = Video.new(title: "Cat hissing at camera - WARNING! [Scary cat]", description: "Cats can be scary! Please like and leave a comment! Sample video sourced from https://www.videvo.net/", view_count: 500, uploader_id: mochi.id )
 thumbnail_4 = open('https://vidtube-seeds.s3.amazonaws.com/04_cat_hissing_at_camera.jpg')
 video_4.thumbnail_file.attach(io: thumbnail_4, filename: '04_cat_hissing_at_camera.jpg')
+video_file_4 = open('https://vidtube-seeds.s3.amazonaws.com/test-video.mp4')
+video_4.video_file.attach(io: video_file_4, filename: 'test-video.mp4')
 video_4.save
 
 # video_5 = Video.new(title: "Cat in a busy market - WARNING! [Cute cat]", description: "Cats like to relax. Please like and leave a comment! Sample video sourced from https://www.videvo.net/", view_count: 30, uploader_id: mochi.id )

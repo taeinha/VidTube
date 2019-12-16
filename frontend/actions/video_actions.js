@@ -20,9 +20,9 @@ const removeVideo = videoId => ({
   videoId
 });
 
-const receiveVideoErrors = errors => ({
+const receiveVideoErrors = ({ responseJSON }) => ({
   type: RECEIVE_VIDEO_ERRORS,
-  errors
+  messages: responseJSON
 });
 
 export const fetchAllVideos = () => dispatch => {
@@ -37,12 +37,18 @@ export const fetchSingleVideo = (videoId) => dispatch => {
 
 export const createVideo = formData => dispatch => {
   return VideoAPIUtil.createVideo(formData)
-    .then(payload => dispatch(receiveSingleVideo(payload)));
+    .then(
+      payload => dispatch(receiveSingleVideo(payload)),
+      errors => dispatch(receiveVideoErrors(errors))
+    );
 };
 
 export const updateVideo = (formData, videoId) => dispatch => {
   return VideoAPIUtil.updateVideo(formData, videoId)
-    .then(payload => dispatch(receiveSingleVideo(payload)));
+    .then(
+      payload => dispatch(receiveSingleVideo(payload)),
+      errors => dispatch(receiveVideoErrors(errors))
+    );
 };
 
 export const deleteVideo = videoId => dispatch => {

@@ -10,6 +10,10 @@ class VideoForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     const { formType } = this.props;
     e.preventDefault();
@@ -19,6 +23,9 @@ class VideoForm extends React.Component {
     if (this.state.thumbnailFile) {
       formData.append('video[thumbnail_file]', this.state.thumbnailFile);
     }
+    if (this.state.videoFile) {
+      formData.append('video[video_file]', this.state.videoFile);
+    }
     if (formType === 'Upload video') {
       this.props.submitVideo(formData).then(this.props.hideModal);
     } else {
@@ -26,11 +33,13 @@ class VideoForm extends React.Component {
     }
   }
 
-  handleFile(e) {
+  handleFile(e, fileName, fileUrl) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({thumbnailFile: file, thumbnailUrl: fileReader.result});
+      this.setState({
+        [fileName]: file, 
+        [fileUrl]: fileReader.result});
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -54,17 +63,22 @@ class VideoForm extends React.Component {
 
   _titleInput() {
     const { title } = this.state;
-
+    const error = this._renderError("title");
     return (
-      <label>
+      <label className="video-form-text-inputs-label">
         <textarea
           value={title}
           onChange={this.update('title')}
-          className="video-form-title"
+          className={`video-form-title ${error ? " error-input-style" : null}`}
           placeholder="Add a title that describes your video"
           maxLength="100"
-          required
         />
+        {error && (
+          <div className="error-input-warnings">
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
         <span className="input-label-float">Title (required)</span>
         <span className="text-character-remaining">{title.length}/100</span>
       </label>
@@ -74,7 +88,7 @@ class VideoForm extends React.Component {
   _descriptionInput() {
     const { description } = this.state
     return (
-      <label>
+      <label className="video-form-text-inputs-label">
         <textarea 
           value={description}
           onChange={this.update('description')}
@@ -89,20 +103,32 @@ class VideoForm extends React.Component {
   }
 
   _thumbnailInput() {
-    const preview = this.state.thumbnailUrl ? 
-      <img src={this.state.thumbnailUrl} /> : null;
+    const preview = this.state.thumbnailUrl ? <img src={this.state.thumbnailUrl} /> : null;
+    const error = this._renderError("thumbnail");
     return (
-      <label className="video-form-thumbnail-container">
+      <div className="video-form-thumbnail-container">
         <h2>Thumbnail</h2>
         <p>Upload a picture that shows what's in your video. A good thumbnail stands out and draws viewer's attention.</p>
-        <div>
-          <input 
-            type="file"
-            onChange={this.handleFile}
-          />
-          {preview}
+        <div className="video-form-thumbnail-input-container">
+          <label className={`label-input-file-container pointer ${error ? "error-input-style" : null}`}>
+            <img src={window.uploadThumbnailIcon} />
+            <p>Upload thumbnail</p>
+            <input 
+              type="file"
+              onChange={(e) => this.handleFile(e, 'thumbnailFile', 'thumbnailUrl')}
+            />
+          </label>
+          <div>
+            {preview}
+          </div>
         </div>
-      </label>
+        {error && (
+          <div className="error-input-warnings">
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
+      </div>
     )
   }
 
@@ -125,16 +151,32 @@ class VideoForm extends React.Component {
 
   _displayUpload() {
     const { formType } = this.props;
+    const preview = this.state.videoFile ? <p>{this.state.videoFile.name}</p> : null;
+    const error = this._renderError("video file");
     const display = formType === 'Upload video' ? (
       <>
-        <div className="pointer">
-          <img src={window.uploadIcon} />
-        </div>
-        <p>Drag and drop a file you want to upload</p>
-        <p>Your video will be public when you publish it</p>
-        <div className="video-form-select-file-button pointer">
-          SELECT FILE
-        </div>
+        <label htmlFor="upload-input" className="label-input-file-container pointer">
+          <div className={`upload-icon-div pointer ${error ? "error-input-style" : null}`}>
+            <img src={window.uploadIcon} />
+          </div>
+          <p>Drag and drop a file you want to upload</p>
+          <p>Your video will be public when you publish it</p>
+          <input
+            type="file"
+            id="upload-input"
+            onChange={(e) => this.handleFile(e, 'videoFile', 'videoUrl')}
+          />
+          <div className="video-form-select-file-button pointer">
+            SELECT FILE
+          </div>
+        </label>
+        {error && (
+          <div className="error-input-warnings">
+            <img src={window.errorIcon} className="error-icon-img" />
+            <span>{error}</span>
+          </div>
+        )}
+        {preview}
       </>
     ) : null;
 
@@ -144,6 +186,12 @@ class VideoForm extends React.Component {
       </>
     )
   }
+
+  _renderError(field) {
+    const { errors } = this.props;
+    return errors.find(error => error.toLowerCase().includes(field));
+  }
+
   render() {
     const { formType, hideModal } = this.props;
 

@@ -13,7 +13,6 @@ class Api::VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.uploader_id = current_user.id
-    
     if @video.save
       render :show
     else
@@ -43,6 +42,6 @@ class Api::VideosController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:title, :description, :thumbnail_file)
+    params.require(:video).permit(:title, :description, :thumbnail_file, :video_file)
   end
 end

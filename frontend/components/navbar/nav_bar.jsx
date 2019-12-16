@@ -65,7 +65,7 @@ class NavBar extends React.Component {
           <nav className="right-nav">
             <img 
               src={window.addVideoIcon}
-              className="convert-gray"
+              className="convert-gray pointer"
               onClick={() => {
                 if (currentUser) showModal({type: 'create_video'})
               }}
