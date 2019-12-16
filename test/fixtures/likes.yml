@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: likes
+#
+#  id           :bigint           not null, primary key
+#  user_id      :integer
+#  likable_type :string
+#  likable_id   :bigint
+#  is_like      :boolean
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  is_like: false
+
+two:
+  user_id: 1
+  is_like: false

@@ -3,10 +3,12 @@ json.video do
   json.extract! @video, :description
   json.videoUrl url_for(@video.video_file)
   json.showVideos @videos.map { |vid| vid.id }
+  json.like_counts @like_counts
 end
 
 json.user do
   json.partial! "api/users/user", user: @video.uploader
+  json.like @video.uploader.likes
 end
 
 json.videos do

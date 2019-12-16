@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  title       :string           not null
-#  description :text             not null
+#  description :text             default("")
 #  view_count  :integer          default(0), not null
 #  uploader_id :integer          not null
 #  created_at  :datetime         not null
@@ -23,6 +23,8 @@ class Video < ApplicationRecord
     primary_key: :id,
     foreign_key: :uploader_id,
     class_name: :User
+
+  has_many :likes, as: :likable
 
   has_one_attached :video_file
   has_one_attached :thumbnail_file

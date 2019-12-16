@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy] do
       get :email
     end
-    resources :videos, only: [:index, :show, :create, :update, :destroy]
+    resources :videos, only: [:index, :show, :create, :update, :destroy] do
+      post :create_like
+      delete :destroy_like
+    end
   end
 end

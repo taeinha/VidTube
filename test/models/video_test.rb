@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  title       :string           not null
-#  description :text             not null
+#  description :text             default("")
 #  view_count  :integer          default(0), not null
 #  uploader_id :integer          not null
 #  created_at  :datetime         not null

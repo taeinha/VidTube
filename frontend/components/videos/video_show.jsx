@@ -1,6 +1,5 @@
 import React from 'react';
 import { getDate } from '../../util/date_util';
-import { Link } from 'react-router-dom';
 import VideoShowItem from './video_show_item';
 
 class VideoShow extends React.Component {
@@ -43,7 +42,8 @@ class VideoShow extends React.Component {
 
   displayLeft() {
     const { video, users } = this.props;
-
+    if (!this.props.video.like_counts) return null;
+    
     return (
       <section className="video-show-left-container">
         <div className="video-show-item-container">
@@ -75,11 +75,11 @@ class VideoShow extends React.Component {
               <div className="video-likes-container">
                 <div className="pointer">
                   <img src={window.likesIcon} />
-                  <span>10K</span>
+                  <span>{video.like_counts.true}</span>
                 </div>
                 <div className="pointer">
                   <img src={window.dislikesIcon} />
-                  <span>8.5K</span>
+                  <span>{video.like_counts.false}</span>
                 </div>
               </div>
             </div>
@@ -108,6 +108,7 @@ class VideoShow extends React.Component {
 
   displayRight() {
     if (!this.props.video.showVideos) return null;
+    
     let that = this;
     const videoDivs = this.props.video.showVideos.map((videoId, i) => {
       const vid = that.props.videos[videoId];
