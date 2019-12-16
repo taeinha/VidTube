@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import VidtubeLogo from '../logo/logo';
 
 class NavBar extends React.Component {
@@ -48,7 +48,7 @@ class NavBar extends React.Component {
 
   render() {
     const { currentUser, showModal } = this.props;
-
+    let that = this;
     return (
       <div className="overall-main-nav-container">
         <header className="main-nav-container">
@@ -67,7 +67,11 @@ class NavBar extends React.Component {
               src={window.addVideoIcon}
               className="convert-gray pointer"
               onClick={() => {
-                if (currentUser) showModal({type: 'create_video'})
+                if (currentUser) {
+                  showModal({type: 'create_video'})
+                } else {
+                  that.props.history.push(`/login`);
+                }
               }}
           />
             {/* <img src={window.appsIcon} className="small-img convert-gray"/>
@@ -98,4 +102,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -3,10 +3,10 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './nav_bar';
 import { showModal } from '../../actions/modal_actions';
 
-const msp = state => {
+const msp = (state, ownProps) => {
   const user = state.entities.users[state.session.id];
   return {
-    currentUser: user
+    currentUser: user,
   };
 };
 

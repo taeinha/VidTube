@@ -1,5 +1,6 @@
 class Api::VideosController < ApplicationController
   # payload of videos and users, later adding likes and comments too
+
   def index
     @videos = Video.all.includes(:uploader)
     render :index
@@ -7,6 +8,12 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @videos = Video.all
+      .includes(:uploader)
+      .where.not(id: params[:id])
+      .order("RANDOM()")
+      .limit(5)
+    
     render :show
   end
 

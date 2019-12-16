@@ -5,6 +5,7 @@ class VideoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.video;
+    this.state.disableSubmit = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -26,10 +27,21 @@ class VideoForm extends React.Component {
     if (this.state.videoFile) {
       formData.append('video[video_file]', this.state.videoFile);
     }
+    this.setState({disableSubmit: true});
     if (formType === 'Upload video') {
-      this.props.submitVideo(formData).then(this.props.hideModal);
+      this.props.submitVideo(formData).then((resp) => {
+        this.props.hideModal();
+        this.props.history.push(`/videos/${resp.payload.video.id}`);
+      }, () => {
+        this.setState({ disableSubmit: false });
+      });
     } else {
-      this.props.submitVideo(formData, this.state.id).then(this.props.hideModal);
+      this.props.submitVideo(formData, this.state.id).then(() => {
+        this.props.hideModal();
+        this.props.history.push(`/videos/${this.state.video.id}`);
+      }, () => {
+        this.setState({ disableSubmit: false });
+      });
     }
   }
 
@@ -223,7 +235,7 @@ class VideoForm extends React.Component {
                 </div>
               </div>
               <div className="video-form-submit-box">
-                <button type="submit">DONE</button>
+                <button type="submit" disabled={this.state.disableSubmit}>DONE</button>
               </div>
             </form>
           </div>
