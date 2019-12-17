@@ -1,6 +1,7 @@
 import React from 'react';
 import { getDate } from '../../util/date_util';
 import VideoShowItem from './video_show_item';
+import CommentIndex from '../comments/comments_index_container';
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -141,6 +142,11 @@ class VideoShow extends React.Component {
             <div></div>
             <p>{video.description}</p>
           </div>
+        </div>
+        <div>
+          <CommentIndex 
+            video={video}
+          />
         </div>
       </section>
     )

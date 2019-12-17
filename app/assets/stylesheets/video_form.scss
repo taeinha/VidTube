@@ -196,6 +196,8 @@
         bottom: 0;
         right: 0;
         border-top: 1px solid #DADCE0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
         button {
           box-sizing: border-box;
           height: 36px;
@@ -272,7 +274,6 @@
           margin-right: 12px;
         }
       }
-
     }
   }
 }

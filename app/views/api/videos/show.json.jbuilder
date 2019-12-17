@@ -13,6 +13,10 @@ end
 json.user do
   json.partial! "api/users/user", user: @video.uploader
   if @like
+    json.like do
+      json.extract! @like, :id, :is_like
+    end
+  else
     json.like @like
   end
 end
