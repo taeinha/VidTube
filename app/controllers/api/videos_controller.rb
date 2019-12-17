@@ -18,7 +18,9 @@ class Api::VideosController < ApplicationController
       .order(Arel.sql('random()'))
       .limit(5)
     @like_counts = like_counts(@video)
-    @like = @video.likes.where(user_id: current_user.id).first
+    if logged_in?
+      @like = @video.likes.where(user_id: current_user.id).first
+    end
     
     render :show
   end
