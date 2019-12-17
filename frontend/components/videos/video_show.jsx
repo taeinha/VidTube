@@ -37,7 +37,11 @@ class VideoShow extends React.Component {
     const { users, currentUser, deleteVideoLike, video } = this.props;
     if (!currentUser) return null;
     if (users[currentUser].like) {
-      deleteVideoLike(video.id);
+      if (is_like !== users[currentUser].like.is_like) {
+        deleteVideoLike(video.id).then(() => this.handleCreateLike(is_like));
+      } else {
+        deleteVideoLike(video.id);
+      }
     } else {
       this.handleCreateLike(is_like);
     }
@@ -93,7 +97,7 @@ class VideoShow extends React.Component {
                   <img src={window.likesIcon} />
                   <span>{video.like_counts.true}</span>
                 </div>
-                <div className="pointer">
+                <div className="pointer" onClick={(e) => this.handleLike(e, false)}>
                   <img src={window.dislikesIcon} />
                   <span>{video.like_counts.false}</span>
                 </div>
