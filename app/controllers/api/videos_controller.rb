@@ -14,9 +14,8 @@ class Api::VideosController < ApplicationController
       .where.not(id: params[:id])
       .order(Arel.sql('random()'))
       .limit(5)
-    @like_counts = @video.likes.group(:is_like).count
-    @like_counts[true] = 0 if !@like_counts[true]
-    @like_counts[false] = 0 if !@like_counts[false]
+    @like_counts = like_counts(@video)
+    @like = @video.likes.where(user_id: @video.uploader_id).first
     
     render :show
   end
@@ -53,16 +52,26 @@ class Api::VideosController < ApplicationController
 
   def create_like
     @like = Like.new(like_params)
-    @like.user_id = current_user.user_id
+    @like.user_id = current_user.id
+    @video = Video.find(@like.likable_id)
     if @like.save
-      render json: "You liked something!", status: 200
+      @like_counts = like_counts(@video)
+      render :like
     else
       render json: @like.errors.full_messages, status: 422
     end
   end
 
   def destroy_like
-
+    @like = Like.all.where(user_id: current_user.id, 
+                          likable_id: params[:video_id],
+                          likable_type: "Video")
+    @like = @like.first
+    @video = Video.find(params[:video_id])
+    @like.destroy
+    @like_counts = like_counts(@video)
+    @like = nil
+    render :like
   end
 
   private
@@ -72,5 +81,12 @@ class Api::VideosController < ApplicationController
 
   def like_params
     params.require(:like).permit(:is_like, :likable_type, :likable_id)
+  end
+
+  def like_counts(video)
+    counts = video.likes.group(:is_like).count
+    counts[true] = 0 if !counts[true]
+    counts[false] = 0 if !counts[false]
+    counts
   end
 end

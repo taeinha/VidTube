@@ -8,7 +8,7 @@ end
 
 json.user do
   json.partial! "api/users/user", user: @video.uploader
-  json.like @video.uploader.likes
+  json.like @like
 end
 
 json.videos do

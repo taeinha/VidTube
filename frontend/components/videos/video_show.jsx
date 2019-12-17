@@ -7,6 +7,8 @@ class VideoShow extends React.Component {
     super(props);
     this.state = {};
     this.display = this.display.bind(this);
+    this.handleCreateLike = this.handleCreateLike.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +19,27 @@ class VideoShow extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.videoId !== prevProps.match.params.videoId) {
       this.props.fetchSingleVideo(this.props.match.params.videoId);
+    }
+  }
+
+  handleCreateLike(is_like) {
+    const { video, createVideoLike } = this.props;
+    const like = {
+      is_like,
+      likable_id: video.id,
+      likable_type: "Video"
+    };
+    createVideoLike(like);
+  }
+
+  handleLike(e, is_like) {
+    e.preventDefault();
+    const { users, currentUser, deleteVideoLike, video } = this.props;
+    if (!currentUser) return null;
+    if (users[currentUser].like) {
+      deleteVideoLike(video.id);
+    } else {
+      this.handleCreateLike(is_like);
     }
   }
 
@@ -47,13 +70,6 @@ class VideoShow extends React.Component {
     return (
       <section className="video-show-left-container">
         <div className="video-show-item-container">
-          {/* <iframe 
-            className="video-show-item"
-            src="https://www.youtube.com/embed/_9FEBATgh78" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen>
-          </iframe> */}
           <video 
             controls="controls" 
             className="video-show-item"
@@ -73,7 +89,7 @@ class VideoShow extends React.Component {
             </div>
             <div className="video-info-right">
               <div className="video-likes-container">
-                <div className="pointer">
+                <div className="pointer" onClick={(e) => this.handleLike(e, true)}>
                   <img src={window.likesIcon} />
                   <span>{video.like_counts.true}</span>
                 </div>

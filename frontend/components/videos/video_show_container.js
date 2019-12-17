@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import VideoShow from './video_show';
 import { fetchSingleVideo, fetchAllVideos } from '../../actions/video_actions';
 import { showModal } from '../../actions/modal_actions';
+import { createVideoLike, deleteVideoLike } from '../../actions/like_actions';
 
 const msp = (state, ownProps) => {
   const videoId = ownProps.match.params.videoId;
@@ -20,7 +21,9 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
   fetchSingleVideo: (videoId) => dispatch(fetchSingleVideo(videoId)),
   fetchAllVideos: () => dispatch(fetchAllVideos()),
-  showModal: modal => dispatch(showModal(modal))
+  showModal: modal => dispatch(showModal(modal)),
+  createVideoLike: like => dispatch(createVideoLike(like)),
+  deleteVideoLike: videoId => dispatch(deleteVideoLike(videoId))
 });
 
 export default connect(msp, mdp)(VideoShow);
