@@ -5,14 +5,14 @@ export const RECEIVE_SINGLE_COMMENT = "RECEIVE_SINGLE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 
-const receiveAllComments = comments => ({
+const receiveAllComments = payload => ({
   type: RECEIVE_ALL_COMMENTS,
-  comments
+  payload
 });
 
-const receiveSingleComment = comment => ({
+const receiveSingleComment = payload => ({
   type: RECEIVE_ALL_COMMENTS,
-  comment
+  payload
 });
 
 const removeComment = commentId => ({
@@ -27,7 +27,7 @@ const receiveCommentErrors = ({ responseJSON }) => ({
 
 export const fetchAllComments = (videoId) => dispatch => {
   CommentAPIUtil.fetchAllComments(videoId)
-    .then(comments => dispatch(receiveAllComments(comments)));
+    .then(payload => dispatch(receiveAllComments(payload)));
 };
 
 export const createComment = comment => dispatch => {
