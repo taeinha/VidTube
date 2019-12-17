@@ -18,7 +18,7 @@ class Api::VideosController < ApplicationController
       .order(Arel.sql('random()'))
       .limit(5)
     @like_counts = like_counts(@video)
-    @like = @video.likes.where(user_id: @video.uploader_id).first
+    @like = @video.likes.where(user_id: current_user.id).first
     
     render :show
   end
@@ -27,6 +27,14 @@ class Api::VideosController < ApplicationController
     @video = Video.new(video_params)
     @video.uploader_id = current_user.id
     if @video.save
+      @videos = Video.all
+        .with_attached_thumbnail_file
+        .includes(:uploader)
+        .where.not(id: @video.id)
+        .order(Arel.sql('random()'))
+        .limit(5)
+      @like_counts = like_counts(@video)
+      @like = @video.likes.where(user_id: current_user.id).first
       render :show
     else
       render json: @video.errors.full_messages, status: 422
@@ -36,6 +44,8 @@ class Api::VideosController < ApplicationController
   def update
     @video = current_user.videos.find(params[:id])
     if @video.update(video_params)
+      @like_counts = like_counts(@video)
+      @like = @video.likes.where(user_id: current_user.id).first
       render :show
     else
       render json: @video.errors.full_messages, status: 422
@@ -49,7 +59,6 @@ class Api::VideosController < ApplicationController
       return
     end
     @video.destroy
-
     render :show
   end
 

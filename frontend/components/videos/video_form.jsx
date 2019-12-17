@@ -38,7 +38,6 @@ class VideoForm extends React.Component {
     } else {
       this.props.submitVideo(formData, this.state.id).then(() => {
         this.props.hideModal();
-        this.props.history.push(`/videos/${this.state.video.id}`);
       }, () => {
         this.setState({ disableSubmit: false });
       });

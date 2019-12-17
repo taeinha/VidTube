@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :videos, only: [:index, :show, :create, :update, :destroy] do
       post :create_like
       delete :destroy_like
+      resources :comments, only: [:index, :create]
     end
+
+    resources :comments, only: [:update, :destroy]
   end
 end
