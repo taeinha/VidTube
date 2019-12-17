@@ -1,12 +1,85 @@
 .video-show-overall-comment-container {
+ 
+  header {
+    margin-bottom: 24px;
+  }
   img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    margin-right: 16px;
   }
   .comment-create-form-container {
+    margin: 24px 0 32px 0;
+    height: 115px;
+    .comment-form-content {
+      display: flex;
+
+      form {
+        width: 100%;
+        ::placeholder {
+          font-size: 14px;
+          font-weight: 400;
+          color: #606060;
+        }
+        input {
+          width: 100%;
+          border-bottom: 1px solid #DADCE0;
+        }
+        div {
+          padding-top: 8px;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
   }
   .comment-item-container {
+    display: flex;
+    height: 146px;
+    background: yellowgreen;
+    .comment-item-info {
 
+      .comment-item-user-info {
+        font-size: 13px;
+        margin-bottom: 8px;
+        span:first-of-type {
+          font-weight: 500;
+          color: black;
+          margin-right: 6px;
+          line-height: 18px;
+        }
+
+        span:last-of-type {
+          color: #606060;
+          font-weight: 400;
+        }
+      }
+      .comment-item-body {
+        margin-bottom: 8px;
+        p {
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+        }
+      }
+
+      .comment-item-likes-container {
+        display: flex;
+        
+        div {
+          display: flex;
+          align-items: center;
+          font-size: 13px;
+          color: #606060;
+          img {
+            width: 20px;
+            height: 20px;
+            padding: 8px;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }

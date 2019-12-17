@@ -64,3 +64,13 @@ html, body, #root, .app-container, .overall-videos-container  {
     // display: none;
   }
 }
+
+.blue-button-only {
+  width: 72px;
+  height: 16px;
+  padding: 10px 16px;
+  background-color: #1A73E8;
+  color: white;
+  font-size: 14px;
+  border-radius: 2px;
+}

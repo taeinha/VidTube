@@ -6,8 +6,8 @@
   end
 
   json.users do
-    json.set! video.uploader_id do
-      json.partial! "api/users/user", user: video.uploader
+    json.set! comment.user_id do
+      json.partial! "api/users/user", user: comment.user
     end
   end
 end

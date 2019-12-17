@@ -6,15 +6,29 @@ const CommentIndexItem = ({ comment, user }) => {
   return (
     <div className="comment-item-container">
       <img src={window.dummyChannelPic} />
-      <div>
-        <div>
-          <h2>username placeholder</h2>
+      <div className="comment-item-info">
+        <div className="comment-item-user-info">
+          <span>{user.username}</span>
+          <span>{timeConvert(comment.created_at)}</span>
         </div>
-        <div>
-          <p>comment placeholder</p>
+        <div className="comment-item-body">
+         <p>{comment.body}</p>
         </div>
-        <div>
-          LIKES placeholder
+        <div className="comment-item-likes-container">
+          <div
+            className="pointer"
+            onClick={(e) => null}
+          >
+            <img src={window.likesIcon} />
+            <span>10</span>
+          </div>
+          <div
+            className="pointer"
+            onClick={(e) => null}
+          >
+            <img src={window.dislikesIcon} />
+            <span>15</span>
+          </div>
         </div>
       </div>
     </div>

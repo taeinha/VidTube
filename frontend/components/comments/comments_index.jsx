@@ -18,7 +18,7 @@ class CommentIndex extends React.Component {
         <header className="comment-form-header">
           285 Comments (Under Construction)
         </header>
-        <div>
+        <div className="comment-form-content">
           <img src={window.mochiIcon} />
           <form>
             <label>
@@ -28,7 +28,7 @@ class CommentIndex extends React.Component {
               />
             </label>
             <div>
-              <button>COMMENT</button>
+              <button className="blue-button-only">COMMENT</button>
             </div>
           </form>
         </div>
@@ -36,11 +36,29 @@ class CommentIndex extends React.Component {
     );
   }
 
+  displayCommentItems() {
+    const { comments, users } = this.props;
+    const commentDivs = comments.map((comment, i) => (
+      <CommentIndexItem
+        key={comment.id}
+        comment={comment}
+        user={users[comment.user_id]}
+      />
+      )
+    )
+
+    return (
+      <>
+        {commentDivs}
+      </>
+    )
+  }
+
   render() {
     return (
       <section className="video-show-overall-comment-container">
         {this.displayCommentForm()}
-        <CommentIndexItem />
+        {this.displayCommentItems()}
       </section>
     );
   }
