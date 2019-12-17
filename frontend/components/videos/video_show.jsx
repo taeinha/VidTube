@@ -35,7 +35,10 @@ class VideoShow extends React.Component {
   handleLike(e, is_like) {
     e.preventDefault();
     const { users, currentUser, deleteVideoLike, video } = this.props;
-    if (!currentUser) return null;
+    if (!currentUser) {
+      this.props.history.push('/login');
+      return null;
+    }
     if (users[currentUser].like) {
       if (is_like !== users[currentUser].like.is_like) {
         deleteVideoLike(video.id).then(() => this.handleCreateLike(is_like));

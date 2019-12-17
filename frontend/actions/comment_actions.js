@@ -32,12 +32,18 @@ export const fetchAllComments = (videoId) => dispatch => {
 
 export const createComment = comment => dispatch => {
   CommentAPIUtil.createComment(comment)
-    .then(payload => dispatch(receiveSingleComment(payload)));
+    .then(
+      payload => dispatch(receiveSingleComment(payload)),
+      errors => dispatch(receiveCommentErrors(errors))
+    );
 };
 
 export const updateComment = comment => dispatch => {
   CommentAPIUtil.updateComment(comment)
-    .then(payload => dispatch(receiveSingleComment(payload)));
+    .then(payload => dispatch(
+      receiveSingleComment(payload)),
+      errors => dispatch(receiveCommentErrors(errors))
+    );
 };
 
 export const deleteComment = commentId => dispatch => {
