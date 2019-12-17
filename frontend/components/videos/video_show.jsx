@@ -69,8 +69,9 @@ class VideoShow extends React.Component {
 
   _styleLike(is_like, container) {
     const { users, currentUser } = this.props;
+    if (!currentUser) return null
     if (users[currentUser].like) {
-      if (users[currentUser].like.is_like === is_like) {
+      if (users[currentUser].like.is_like === is_like || container === 'container') {
         return `video-likes-blue-${container}`
       }
     } 
