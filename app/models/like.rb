@@ -3,10 +3,10 @@
 # Table name: likes
 #
 #  id           :bigint           not null, primary key
-#  user_id      :integer
-#  likable_type :string
-#  likable_id   :bigint
-#  is_like      :boolean
+#  user_id      :integer          not null
+#  likable_type :string           not null
+#  likable_id   :integer          not null
+#  is_like      :boolean          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

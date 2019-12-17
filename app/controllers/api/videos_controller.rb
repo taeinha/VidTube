@@ -8,6 +8,9 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @video.view_count += 1
+    @video.save
+    
     @videos = Video.all
       .with_attached_thumbnail_file
       .includes(:uploader)

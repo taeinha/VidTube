@@ -29,6 +29,11 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Like
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Comment
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil if user.nil?
