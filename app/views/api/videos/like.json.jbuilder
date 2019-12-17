@@ -5,5 +5,11 @@ end
 
 json.user do
   json.partial! "api/users/user", user: current_user
-  json.like @like
+  if @like
+    json.like do
+      json.extract! @like, :id, :is_like
+    end
+  else
+    json.like @like
+  end
 end

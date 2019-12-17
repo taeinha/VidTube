@@ -67,8 +67,18 @@ class VideoShow extends React.Component {
     )
   }
 
+  _styleLike(is_like, container) {
+    const { users, currentUser } = this.props;
+    if (users[currentUser].like) {
+      if (users[currentUser].like.is_like === is_like) {
+        return `video-likes-blue-${container}`
+      }
+    } 
+    return null;
+  }
+
   displayLeft() {
-    const { video, users } = this.props;
+    const { video, users, currentUser } = this.props;
     if (!this.props.video.like_counts) return null;
     
     return (
@@ -92,12 +102,18 @@ class VideoShow extends React.Component {
               <span>{getDate(video.created_at)}</span>
             </div>
             <div className="video-info-right">
-              <div className="video-likes-container">
-                <div className="pointer" onClick={(e) => this.handleLike(e, true)}>
+              <div className={`video-likes-container ${this._styleLike(true, "container")}`}>
+                <div 
+                  className={`pointer ${this._styleLike(true, "like")}`} 
+                  onClick={(e) => this.handleLike(e, true)}
+                >
                   <img src={window.likesIcon} />
                   <span>{video.like_counts.true}</span>
                 </div>
-                <div className="pointer" onClick={(e) => this.handleLike(e, false)}>
+                <div 
+                  className={`pointer ${this._styleLike(false, "like")}`}
+                  onClick={(e) => this.handleLike(e, false)}
+                >
                   <img src={window.dislikesIcon} />
                   <span>{video.like_counts.false}</span>
                 </div>

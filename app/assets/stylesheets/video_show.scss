@@ -78,6 +78,14 @@
           display: flex;
           align-items: center;
         }
+
+        .video-likes-blue-like {
+          filter: invert(51%) sepia(75%) saturate(6061%) hue-rotate(202deg) brightness(94%) contrast(92%);
+          color: #1A73E8;
+        }
+      }
+      .video-likes-blue-container {
+        border-bottom: 2px solid #1A73E8;
       }
     }
 
