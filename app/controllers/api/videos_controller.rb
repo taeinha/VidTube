@@ -53,7 +53,7 @@ class Api::VideosController < ApplicationController
   end
 
   def destroy
-    @video = Video.find(params[:id])
+    @video = current_user.videos.find(params[:id])
     unless @video.uploader_id == current_user.id
       render json: ['You are not the uploader of this video!'], status: 422
       return

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       resources :comments, only: [:index, :create]
     end
 
-    resources :comments, only: [:update, :destroy]
+    resources :comments, only: [:update, :destroy] do
+      post :create_like
+      delete :destroy_like
+    end
   end
 end

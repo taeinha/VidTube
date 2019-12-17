@@ -26,11 +26,25 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    render @comment, status: 200
+  end
+
+  def create_like
+
+  end
+
+  def destroy_like
+
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:body, :video_id)
+  end
+
+  def like_params
+    params.require(:like).permit(:is_like, :likable_type, :likable_id)
   end
 end
