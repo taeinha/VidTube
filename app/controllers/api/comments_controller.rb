@@ -2,6 +2,7 @@ class Api::CommentsController < ApplicationController
   def index
     @video = Video.find(params[:video_id])
     @comments = @video.comments
+    @comment_count = @video.comments.count
     render :index
   end
 
@@ -9,7 +10,9 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      render json: @comment, status: 200
+      @video = Video.find(@comment.video_id)
+      @comment_count = @video.comments.count
+      render :show
     else
       render json: @comment.errors.full_messages, status: 422
     end
@@ -18,7 +21,9 @@ class Api::CommentsController < ApplicationController
   def update
     @comment = current_user.comments.find(params[:id])
     if @comment.update(comment_params)
-      render json: @comment, status: 200
+      @video = Video.find(@comment.video_id)
+      @comment_count = @video.comments.count
+      render :show
     else
       render json: @comment.errors.full_messages, status: 422
     end
@@ -27,7 +32,9 @@ class Api::CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    render @comment, status: 200
+    @video = Video.find(@comment.video_id)
+    @comment_count = @video.comments.count
+    render :show
   end
 
   def create_like

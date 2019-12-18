@@ -1,5 +1,4 @@
 .video-show-overall-comment-container {
- 
   header {
     margin-bottom: 24px;
   }
@@ -21,10 +20,21 @@
           font-size: 14px;
           font-weight: 400;
           color: #606060;
+          
         }
-        input {
+        label {
+          height: auto;
+        }
+        textarea {
           width: 100%;
           border-bottom: 1px solid #DADCE0;
+          // padding-bottom: 5px;
+          font-weight: 300;
+          resize: none;
+          height: 24px;
+          background-color: #F9F9F9;
+          position: relative;
+          z-index: 99;
         }
         div {
           padding-top: 8px;
@@ -37,7 +47,6 @@
   .comment-item-container {
     display: flex;
     height: 146px;
-    background: yellowgreen;
     .comment-item-info {
 
       .comment-item-user-info {
@@ -46,7 +55,7 @@
         span:first-of-type {
           font-weight: 500;
           color: black;
-          margin-right: 6px;
+          padding-right: 6px;
           line-height: 18px;
         }
 
@@ -71,12 +80,16 @@
           display: flex;
           align-items: center;
           font-size: 13px;
-          color: #606060;
+          color: #909090;
           img {
             width: 20px;
             height: 20px;
-            padding: 8px;
+            padding: 8px 5px 8px 8px;
             margin: 0;
+            filter: invert(61%) sepia(0%) saturate(4231%) hue-rotate(90deg) brightness(92%) contrast(84%);
+          }
+          span {
+            margin-right: 4px;
           }
         }
       }

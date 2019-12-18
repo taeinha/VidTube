@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import CommentIndex from './comments_index';
-import { fetchAllComments } from '../../actions/comment_actions';
+import { fetchAllComments, createComment } from '../../actions/comment_actions';
 
 const msp = state => {
   return {
@@ -11,7 +11,8 @@ const msp = state => {
 };
 
 const mdp = dispatch => ({
-  fetchAllComments: (videoId) => dispatch(fetchAllComments(videoId))
+  fetchAllComments: (videoId) => dispatch(fetchAllComments(videoId)),
+  createComment: (comment) => dispatch(createComment(comment))
 });
 
 export default connect(msp, mdp)(CommentIndex);

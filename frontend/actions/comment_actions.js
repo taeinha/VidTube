@@ -11,7 +11,7 @@ const receiveAllComments = payload => ({
 });
 
 const receiveSingleComment = payload => ({
-  type: RECEIVE_ALL_COMMENTS,
+  type: RECEIVE_SINGLE_COMMENT,
   payload
 });
 
@@ -26,12 +26,12 @@ const receiveCommentErrors = ({ responseJSON }) => ({
 });
 
 export const fetchAllComments = (videoId) => dispatch => {
-  CommentAPIUtil.fetchAllComments(videoId)
+  return CommentAPIUtil.fetchAllComments(videoId)
     .then(payload => dispatch(receiveAllComments(payload)));
 };
 
 export const createComment = comment => dispatch => {
-  CommentAPIUtil.createComment(comment)
+  return CommentAPIUtil.createComment(comment)
     .then(
       payload => dispatch(receiveSingleComment(payload)),
       errors => dispatch(receiveCommentErrors(errors))
@@ -39,14 +39,14 @@ export const createComment = comment => dispatch => {
 };
 
 export const updateComment = comment => dispatch => {
-  CommentAPIUtil.updateComment(comment)
-    .then(payload => dispatch(
-      receiveSingleComment(payload)),
+  return CommentAPIUtil.updateComment(comment)
+    .then(
+      payload => dispatch(receiveSingleComment(payload)),
       errors => dispatch(receiveCommentErrors(errors))
     );
 };
 
 export const deleteComment = commentId => dispatch => {
-  CommentAPIUtil.deleteComment(commentId)
+  return CommentAPIUtil.deleteComment(commentId)
     .then(() => dispatch(removeComment(commentId)));
 };

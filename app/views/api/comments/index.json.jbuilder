@@ -10,4 +10,9 @@
       json.partial! "api/users/user", user: comment.user
     end
   end
+
+  json.video do
+    json.id @video.id
+    json.comment_count @comment_count
+  end
 end
