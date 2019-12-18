@@ -29,7 +29,7 @@ class CommentIndex extends React.Component {
   }
 
   displayCommentItems() {
-    const { comments, users, createCommentLike, deleteCommentLike, currentUser } = this.props;
+    const { comments, users, createCommentLike, deleteCommentLike, currentUser, removeComment } = this.props;
     const currUser = currentUser ? users[currentUser] : null;
     const commentDivs = comments.map((comment) => (
       <CommentIndexItem
@@ -39,6 +39,7 @@ class CommentIndex extends React.Component {
         createCommentLike={createCommentLike}
         deleteCommentLike={deleteCommentLike}
         currentUser={currUser}
+        removeComment={removeComment}
       />
       )
     )

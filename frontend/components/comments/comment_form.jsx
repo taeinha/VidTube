@@ -10,9 +10,13 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e) {
+    const { formType, hideEditForm } = this.props;
     e.preventDefault();
     this.props.submitComment(this.state)
-      .then(() => this.clearEntry());
+      .then(() => {
+        this.clearEntry();
+        if (formType === 'Update') hideEditForm();
+      });
   }
 
   clearEntry() {
@@ -44,7 +48,9 @@ class CommentForm extends React.Component {
     const { formType } = this.props;
     return (
       <div className="comment-form-content">
-        <img src={window.mochiIcon} />
+        { formType === 'Create' ? (
+          <img src={window.mochiIcon} className="comments-profile-img"/>
+        ) : null }
         <form onSubmit={this.handleSubmit}>
           <label>
             <textarea

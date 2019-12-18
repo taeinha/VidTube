@@ -16,6 +16,7 @@ const mdp = dispatch => ({
   fetchAllComments: (videoId) => dispatch(fetchAllComments(videoId)),
   createCommentLike: (like) => dispatch(createCommentLike(like)),
   deleteCommentLike: (commentId) => dispatch(deleteCommentLike(commentId)),
+  removeComment: (commentId) => dispatch(deleteComment(commentId))
 });
 
 export default connect(msp, mdp)(CommentIndex);

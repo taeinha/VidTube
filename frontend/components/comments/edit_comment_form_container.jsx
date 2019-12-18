@@ -7,19 +7,22 @@ updateComment: comment => dispatch(updateComment(comment))
 
 class EditCommentForm extends React.Component {
   render() {
-    const { comment, currentUser, formType, errors, submitComment, deleteComment, clearErrors } = this.props;
+    const { comment, currentUser, formType, errors, submitComment, deleteComment, clearErrors, hideEditForm } = this.props;
     if (!comment || !currentUser || comment.user_id !== currentUser) return null;
     
     return (
-      <CommentForm 
-        comment={comment}
-        currentUser={currentUser}
-        formType={formType}
-        errors={errors}
-        submitComment={submitComment}
-        deleteComment={deleteComment}
-        clearErrors={clearErrors}
-      />
+      <main className="comment-create-form-container">
+        <CommentForm 
+          comment={comment}
+          currentUser={currentUser}
+          formType={formType}
+          errors={errors}
+          submitComment={submitComment}
+          deleteComment={deleteComment}
+          clearErrors={clearErrors}
+          hideEditForm={hideEditForm}
+        />
+      </main>
     )
   }
 }

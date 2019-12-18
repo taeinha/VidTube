@@ -13,6 +13,12 @@ class CommentIndexItem extends React.Component {
     };
     this.handleCreateLike = this.handleCreateLike.bind(this);
     this.handleLike = this.handleLike.bind(this);
+    this.hideEditForm = this.hideEditForm.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
+  }
+  
+  componentWillUnmount() {
+    
   }
 
   handleCreateLike(is_like) {
@@ -85,17 +91,56 @@ class CommentIndexItem extends React.Component {
     )
   }
 
+  handleDeleteComment(e) {
+    e.preventDefault();
+    const { comment, removeComment, currentUser } = this.props;
+    if (currentUser.id !== comment.user_id) return null
+    removeComment(comment.id)
+  }
+
+  displayEditDeleteButtons() {
+    if (!this.props.currentUser) return null;
+    return (
+      this.props.currentUser.id === this.props.comment.user_id ? (
+        <>
+          <img
+            src={window.editCommentIcon}
+            className="comments-edit-or-delete-button comments-edit-button pointer"
+            onClick={() => this.setState({ showEditForm: true })}
+          />
+          <img
+            src={window.deleteIcon}
+            className="comments-edit-or-delete-button comments-delete-button pointer"
+            onClick={this.handleDeleteComment}
+          />
+        </>
+      ) : (
+        null
+      )
+    )
+  }
+
+  hideEditForm() {
+    this.setState({ showEditForm: false });
+  }
+
   render() {
     const { comment } = this.props;
     const likes = comment.like_counts.true;
     const dislikes = comment.like_counts.false;
     return (
       <div className="comment-item-container">
-        <img src={window.dummyChannelPic} />
+        <img src={window.dummyChannelPic} className="comments-profile-img" />
         {!this.state.showEditForm ? (
-          this.displayCommentInfo(likes, dislikes)
+          <>
+            {this.displayCommentInfo(likes, dislikes)}
+            {this.displayEditDeleteButtons()}
+          </>
         ) : (
-          <EditCommentFormContainer />
+          <EditCommentFormContainer 
+            comment={comment}
+            hideEditForm={this.hideEditForm}
+          />
         )}
   
       </div>
