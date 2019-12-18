@@ -21,6 +21,7 @@ const videosReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_ALL_COMMENTS:
       video = action.payload.video;
+      if (!video) return state;
       newState = merge({}, state);
       newState[video.id] = merge({}, newState[video.id], video);
       return newState;

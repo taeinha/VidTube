@@ -1,7 +1,7 @@
 import React from 'react';
 import { getDate } from '../../util/date_util';
 import VideoShowItem from './video_show_item';
-import CommentIndex from '../comments/comments_index_container';
+import CommentIndex from '../comments/comment_index_container';
 
 class VideoShow extends React.Component {
   constructor(props) {

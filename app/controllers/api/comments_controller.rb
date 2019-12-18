@@ -50,6 +50,7 @@ class Api::CommentsController < ApplicationController
     if @like.save
       @comment = Comment.find(@like.likable_id)
       @video = Video.find(@comment.video_id)
+      @comment_count = @video.comments.count
       render :show
     else
       render json: @like.errors.full_messages, status: 422
@@ -63,6 +64,7 @@ class Api::CommentsController < ApplicationController
     @like.destroy
     @comment = Comment.find(@like.likable_id)
     @video = Video.find(@comment.video_id)
+    @comment_count = @video.comments.count
     @like = nil
     render :show
   end
