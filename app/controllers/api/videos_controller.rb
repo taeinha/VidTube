@@ -67,8 +67,8 @@ class Api::VideosController < ApplicationController
   def create_like
     @like = Like.new(like_params)
     @like.user_id = current_user.id
-    @video = Video.find(@like.likable_id)
     if @like.save
+      @video = Video.find(@like.likable_id)
       @like_counts = like_counts(@video)
       render :like
     else
@@ -77,10 +77,9 @@ class Api::VideosController < ApplicationController
   end
 
   def destroy_like
-    @like = Like.all.where(user_id: current_user.id, 
-                          likable_id: params[:video_id],
-                          likable_type: "Video")
-    @like = @like.first
+    @like = Like.find_by(user_id: current_user.id, 
+                        likable_id: params[:video_id],
+                        likable_type: "Video")
     @video = Video.find(params[:video_id])
     @like.destroy
     @like_counts = like_counts(@video)

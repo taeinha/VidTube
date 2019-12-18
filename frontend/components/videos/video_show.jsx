@@ -40,8 +40,8 @@ class VideoShow extends React.Component {
       this.props.history.push('/login');
       return null;
     }
-    if (users[currentUser].like) {
-      if (is_like !== users[currentUser].like.is_like) {
+    if (video.like) {
+      if (is_like !== video.like.is_like) {
         deleteVideoLike(video.id).then(() => this.handleCreateLike(is_like));
       } else {
         deleteVideoLike(video.id);
@@ -72,10 +72,10 @@ class VideoShow extends React.Component {
   }
 
   _styleLike(is_like, container) {
-    const { users, currentUser } = this.props;
+    const { users, video, currentUser } = this.props;
     if (!currentUser) return null
-    if (users[currentUser].like) {
-      if (users[currentUser].like.is_like === is_like || container === 'container') {
+    if (video.like) {
+      if (video.like.is_like === is_like || container === 'container') {
         return `video-likes-blue-${container}`
       }
     } 

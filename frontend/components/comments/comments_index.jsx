@@ -68,12 +68,16 @@ class CommentIndex extends React.Component {
   }
 
   displayCommentItems() {
-    const { comments, users } = this.props;
+    const { comments, users, createCommentLike, deleteCommentLike, currentUser } = this.props;
+    const currUser = currentUser ? users[currentUser] : null;
     const commentDivs = comments.map((comment) => (
       <CommentIndexItem
         key={comment.id}
         comment={comment}
         user={users[comment.user_id]}
+        createCommentLike={createCommentLike}
+        deleteCommentLike={deleteCommentLike}
+        currentUser={currUser}
       />
       )
     )

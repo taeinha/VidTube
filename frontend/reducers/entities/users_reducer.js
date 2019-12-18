@@ -18,11 +18,11 @@ const usersReducer = (state = {}, action) => {
       newState = merge({}, state, users);
       newState[user.id] = merge({}, newState[user.id], user);
       return newState;
-    case RECEIVE_LIKE_DATA:
-      user = action.payload.user;
-      newState = merge({}, state);
-      newState[user.id] = merge({}, newState[user.id], user);
-      return newState;
+    // case RECEIVE_LIKE_DATA:
+    //   user = action.payload.user;
+    //   newState = merge({}, state);
+    //   newState[user.id] = merge({}, newState[user.id], user);
+    //   return newState;
     case RECEIVE_ALL_COMMENTS:
       return merge({}, state, action.payload.users);
     default:

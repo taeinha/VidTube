@@ -8,10 +8,6 @@ json.video do
   if @like_counts
     json.like_counts @like_counts
   end
-end
-
-json.user do
-  json.partial! "api/users/user", user: @video.uploader
   if @like
     json.like do
       json.extract! @like, :id, :is_like
@@ -19,6 +15,10 @@ json.user do
   else
     json.like @like
   end
+end
+
+json.user do
+  json.partial! "api/users/user", user: @video.uploader
 end
 
 if @videos
