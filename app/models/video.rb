@@ -52,4 +52,8 @@ class Video < ApplicationRecord
   def ensure_view_count
     self.view_count ||= 0
   end
+
+  def self.search_by_title(search_input)
+    Video.where("title ILIKE :search", search: "%#{search_input}%").to_a
+  end
 end

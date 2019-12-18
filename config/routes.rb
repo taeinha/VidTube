@@ -17,5 +17,7 @@ Rails.application.routes.draw do
       post :create_like
       delete :destroy_like
     end
+
+    get :search, controller: 'videos'
   end
 end

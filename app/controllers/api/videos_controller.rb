@@ -87,6 +87,10 @@ class Api::VideosController < ApplicationController
     render :like
   end
 
+  def search
+    @videos = Video.search_by_title(params[:result])
+  end
+
   private
   def video_params
     params.require(:video).permit(:title, :description, :thumbnail_file, :video_file)
