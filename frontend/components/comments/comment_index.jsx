@@ -13,6 +13,12 @@ class CommentIndex extends React.Component {
     this.props.fetchAllComments(this.props.video.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.videoId !== prevProps.match.params.videoId) {
+      this.props.fetchAllComments(this.props.video.id);
+    }
+  }
+
   displayCommentForm() {
     const { video } = this.props;
     return (

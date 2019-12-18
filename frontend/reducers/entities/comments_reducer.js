@@ -7,11 +7,11 @@ const commentsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_COMMENTS:
-      return merge({}, state, action.payload.comments);
+      return action.payload.comments || {};
     case RECEIVE_SINGLE_COMMENT:
       newState = merge({}, state);
       comment = action.payload.comment;
-      newState[comment.id] = merge({}, newState[comment.id], comment);
+      newState[comment.id] = merge({}, comment);
       return newState;
     case RECEIVE_LIKE_DATA:
       comment = action.payload.comment;
@@ -21,7 +21,7 @@ const commentsReducer = (state = {}, action) => {
       return newState;
     case REMOVE_COMMENT:
       newState = merge({}, state);
-      delete newState[action.commentId];
+      delete newState[action.payload.comment.id];
       return newState;
     default:
       return state;

@@ -27,9 +27,12 @@ class Video < ApplicationRecord
   has_many :comments,
     primary_key: :id,
     foreign_key: :video_id,
-    class_name: :Comment
+    class_name: :Comment,
+    dependent: :destroy
 
-  has_many :likes, as: :likable
+  has_many :likes, 
+    as: :likable,
+    dependent: :destroy
 
   has_one_attached :video_file
   has_one_attached :thumbnail_file
