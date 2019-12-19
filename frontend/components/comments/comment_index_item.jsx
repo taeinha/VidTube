@@ -16,10 +16,6 @@ class CommentIndexItem extends React.Component {
     this.hideEditForm = this.hideEditForm.bind(this);
     this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
-  
-  componentWillUnmount() {
-    
-  }
 
   handleCreateLike(is_like) {
     const { comment, createCommentLike } = this.props;
@@ -60,12 +56,19 @@ class CommentIndexItem extends React.Component {
     return null;
   }
 
+  _styleCurrUser(id) {
+    const { currentUser } = this.props;
+    if (currentUser && currentUser.id === id) {
+      return "comment-item-currentuser";
+    }
+  }
+
   displayCommentInfo(likes, dislikes)  {
     const { comment, user } = this.props;
     return (
       <div className="comment-item-info">
         <div className="comment-item-user-info">
-          <span>{user.username}</span>
+          <span className={this._styleCurrUser(user.id)}>{user.username}</span>
           <span>{timeConvert(comment.created_at)}</span>
         </div>
         <div className="comment-item-body">

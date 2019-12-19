@@ -55,6 +55,16 @@
           color: #606060;
           font-weight: 400;
         }
+
+        .comment-item-currentuser:first-of-type {
+          background-color: #888888;
+          border-radius: 10px;
+          color: white;
+          padding-left: 6px;
+          margin-right: 6px;
+          padding-top: 3px;
+          padding-bottom: 3px;
+        }
       }
       .comment-item-body {
         margin-bottom: 8px;
