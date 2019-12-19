@@ -88,7 +88,7 @@ class NavBar extends React.Component {
           </nav>
           <form className="center-nav" onSubmit={this.handleSubmit}>
             <input 
-              type="search" 
+              type="text" 
               placeholder="Search"
               value={this.state.search}
               onChange={this.update('search')}
