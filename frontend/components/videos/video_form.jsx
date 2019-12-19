@@ -76,23 +76,25 @@ class VideoForm extends React.Component {
     const { title } = this.state;
     const error = this._renderError("title");
     return (
-      <label className="video-form-text-inputs-label">
-        <textarea
-          value={title}
-          onChange={this.update('title')}
-          className={`video-form-title ${error ? " error-input-style" : null}`}
-          placeholder="Add a title that describes your video"
-          maxLength="100"
-        />
+      <>
+        <label className="video-form-text-inputs-label">
+          <textarea
+            value={title}
+            onChange={this.update('title')}
+            className={`video-form-title ${error ? " error-input-style" : null}`}
+            placeholder="Add a title that describes your video"
+            maxLength="100"
+          />
+          <span className="input-label-float">Title (required)</span>
+          <span className="text-character-remaining">{title.length}/100</span>
+        </label>
         {error && (
           <div className="error-input-warnings">
             <img src={window.errorIcon} className="error-icon-img" />
             <span>{error}</span>
           </div>
         )}
-        <span className="input-label-float">Title (required)</span>
-        <span className="text-character-remaining">{title.length}/100</span>
-      </label>
+      </>
     )
   }
 

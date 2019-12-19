@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SearchIndexItem from './search_index_item';
+import SideBar from '../sidebar/side_bar_container';
 
 class SearchIndex extends React.Component {
   constructor(props) {
@@ -28,20 +29,25 @@ class SearchIndex extends React.Component {
       )
     })
     return (
-      <main className="search-index-overall-container">
-        <header>
-          FILTER
-        </header>
-        <section className="search-index-outer-container">
-          {videos.length > 0 ? (
-            searchItemDivs
-          ) : (
-            <main className="search-index-no-results">
-              <p>Sorry! We can't seem to find a video with "{this.state.result}"</p>
-            </main>
-          )}
-        </section>
-      </main>
+      <div className="search-index-include-sidebar">
+        <SideBar />
+        <main className="search-index-overall-container">
+          <div className="search-index-inner-container">
+            <header>
+              FILTER
+            </header>
+            <section className="search-index-outer-container">
+              {videos.length > 0 ? (
+                searchItemDivs
+              ) : (
+                <main className="search-index-no-results">
+                  <p>Sorry! We can't seem to find a video with "{this.state.result}"</p>
+                </main>
+              )}
+            </section>
+          </div>
+        </main>
+      </div>
     );
   }
 }

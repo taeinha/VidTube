@@ -1,6 +1,7 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
 import { Link } from 'react-router-dom';
+import SideBar from '../sidebar/side_bar_container';
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class VideoIndex extends React.Component {
   render() {
     return (
       <main className="overall-videos-container">
+        <SideBar />
         <section className="outer-videos-container">
           <h1>Recommended</h1>
           {this.displayAllVideos()}

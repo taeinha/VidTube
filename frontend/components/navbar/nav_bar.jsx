@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     this.hideDropdown = this.hideDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSidebar = this.handleSidebar.bind(this);
   }
 
   showDropdown(_, dropdown) {
@@ -60,14 +61,27 @@ class NavBar extends React.Component {
     ) : null;
   }
 
+  handleSidebar() {
+    const { sidebar, showSidebar, hideSidebar } = this.props;
+    if (sidebar.show) {
+      hideSidebar()
+    } else {
+      showSidebar({ show: true })
+    }
+  }
+
   render() {
-    const { currentUser, showModal, history } = this.props;
+    const { currentUser, showModal } = this.props;
     let that = this;
     return (
       <div className="overall-main-nav-container">
         <header className="main-nav-container">
           <nav className="left-nav">
-            {/* <img src={window.hamburgerIcon} className="small-img convert-gray" /> */}
+            <img 
+              src={window.hamburgerIcon} 
+              className="small-img convert-gray pointer" 
+              onClick={this.handleSidebar}
+            />
             <div>
               <VidtubeLogo />
             </div>

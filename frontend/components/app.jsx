@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './navbar/nav_bar_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
