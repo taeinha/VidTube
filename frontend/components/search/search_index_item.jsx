@@ -13,9 +13,9 @@ const SearchIndexItem = ({ video, user, history }) => {
         <h2>{video.title}</h2>
         <div>
           <span>{user.username}</span>
-          <span>{" \u2022 "}</span>
+          <span className="search-index-item-bullet">{"\u2022"}</span>
           <span>{video.view_count} views</span>
-          <span>{" \u2022 "}</span>
+          <span className="search-index-item-bullet">{"\u2022"}</span>
           <span>{timeConvert(video.created_at)}</span>
         </div>
         <p>{video.description}</p>

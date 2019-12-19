@@ -6,11 +6,13 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDropdown: false
+      showDropdown: false,
+      search: ''
     };
     this.showDropdown = this.showDropdown.bind(this);
     this.hideDropdown = this.hideDropdown.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   showDropdown(_, dropdown) {
@@ -23,6 +25,18 @@ class NavBar extends React.Component {
 
   toggleDropdown(_, dropdown) {
     this.setState({ [dropdown]: !this.state.showDropdown });
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.currentTarget.value });
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const search_query = this.state.search.split(" ").join("+");
+    this.props.history.push(`/results?search_query=${search_query}`);
   }
 
   _userGearDropdown() {
@@ -47,7 +61,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { currentUser, showModal } = this.props;
+    const { currentUser, showModal, history } = this.props;
     let that = this;
     return (
       <div className="overall-main-nav-container">
@@ -58,10 +72,20 @@ class NavBar extends React.Component {
               <VidtubeLogo />
             </div>
           </nav>
-          <nav className="center-nav">
-            <input type="search" placeholder="Search"/>
-            <div className="pointer"><img src={window.searchIcon}/></div>
-          </nav>
+          <form className="center-nav" onSubmit={this.handleSubmit}>
+            <input 
+              type="search" 
+              placeholder="Search"
+              value={this.state.search}
+              onChange={this.update('search')}
+            />
+            <button 
+              className="pointer"
+              type="submit"
+            >
+              <img src={window.searchIcon}/>
+            </button>
+          </form>
           <nav className="right-nav">
             <img 
               src={window.addVideoIcon}

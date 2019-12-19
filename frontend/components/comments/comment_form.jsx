@@ -9,6 +9,9 @@ class CommentForm extends React.Component {
     this.handleUserNotLoggedIn = this.handleUserNotLoggedIn.bind(this);
   }
 
+  componentDidMount() {
+    this.updateTextArea();
+  }
   handleSubmit(e) {
     const { formType, hideEditForm } = this.props;
     e.preventDefault();

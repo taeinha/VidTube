@@ -1,4 +1,5 @@
 .video-show-overall-comment-container {
+  
   header {
     margin-bottom: 24px;
   }
@@ -20,54 +21,23 @@
     height: 24px;
     filter: invert(61%) sepia(0%) saturate(4231%) hue-rotate(90deg) brightness(92%) contrast(84%);
     display: none;
+    position: absolute;
+    top: -5px;
+    right: 0;
   }
   .comments-edit-button {
-    margin-left: auto;
+    right: 40px;
   }
 
-  .comments-delete-button {
-    margin-left: 10px;
-  }
-
-  // .comment-create-form-container {
-  //   margin: 24px 0 32px 0;
-  //   height: 115px;
-  //   .comment-form-content {
-  //     display: flex;
-
-  //     form {
-  //       width: 100%;
-  //       ::placeholder {
-  //         font-size: 14px;
-  //         font-weight: 400;
-  //         color: #606060;
-          
-  //       }
-  //       label {
-  //         height: auto;
-  //       }
-  //       textarea {
-  //         width: 100%;
-  //         border-bottom: 1px solid #DADCE0;
-  //         // padding-bottom: 5px;
-  //         font-weight: 300;
-  //         resize: none;
-  //         height: 24px;
-  //         background-color: #F9F9F9;
-  //         position: relative;
-  //         z-index: 99;
-  //       }
-  //       div {
-  //         padding-top: 8px;
-  //         display: flex;
-  //         justify-content: flex-end;
-  //       }
-  //     }
-  //   }
+  // .comments-delete-button {
+  //   margin-left: 10px;
   // }
+
   .comment-item-container {
     display: flex;
-    height: 146px;
+    height: auto;
+    margin-bottom: 16px;
+    position: relative;
 
     .comment-item-info {
 
@@ -121,7 +91,7 @@
 
 .comment-create-form-container {
     margin: 24px 0 32px 0;
-    height: 115px;
+    height: auto;
     width: 100%;
     .comment-form-content {
       display: flex;
@@ -138,15 +108,18 @@
           height: auto;
         }
         textarea {
+          display: inline-flexbox;
+          overflow-y: visible;
           width: 100%;
           border-bottom: 1px solid #DADCE0;
           // padding-bottom: 5px;
           font-weight: 300;
           resize: none;
-          height: 24px;
+          // height: 24px;
+          // height: auto;
+          // max-width: 100%; 
+          // max-height: 100%;
           background-color: #F9F9F9;
-          position: relative;
-          z-index: 4;
         }
         div {
           padding-top: 8px;

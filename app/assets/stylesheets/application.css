@@ -18,6 +18,7 @@
  *= require video_show
  *= require video_form
  *= require comments_index
+ *= require search_index
  *= require modal
  *= require_self
  */

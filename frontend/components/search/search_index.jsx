@@ -5,16 +5,18 @@ import SearchIndexItem from './search_index_item';
 class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      result: this.props.location.search.slice(14).split("+").join(" ")
+    };
   }
 
   componentDidMount() {
-    const result = this.props.location.search.slice(14);
-    this.props.fetchSearchVideos(result);
+    this.props.fetchSearchVideos(this.state.result);
   }
 
   render() {
     const { videos, users, history } = this.props;
+
     const searchItemDivs = videos.map((video) => {
       return (
         <SearchIndexItem 
@@ -31,7 +33,13 @@ class SearchIndex extends React.Component {
           FILTER
         </header>
         <section className="search-index-outer-container">
-          {searchItemDivs}
+          {videos.length > 0 ? (
+            searchItemDivs
+          ) : (
+            <main className="search-index-no-results">
+              <p>Sorry! We can't seem to find a video with "{this.state.result}"</p>
+            </main>
+          )}
         </section>
       </main>
     );

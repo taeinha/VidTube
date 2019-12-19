@@ -8,7 +8,7 @@ const videosReducer = (state = {}, action) => {
   // const { currentUser } = state.session.id;
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
-      return merge({}, state, action.payload.videos);
+      return action.payload.videos || {};
     case RECEIVE_SINGLE_VIDEO:
       videos = action.payload.videos;
       video = action.payload.video;
