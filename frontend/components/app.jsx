@@ -6,6 +6,7 @@ import NavBarContainer from './navbar/nav_bar_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import Modal from './modal/modal_container';
+import SearchIndexContainer from './search/search_index_container';
 
 const App = (props) => {
   return (
@@ -15,9 +16,8 @@ const App = (props) => {
       <div className="nav-bar-hidden-div"></div>
       <Switch>
         <Route exact path="/" component={VideoIndexContainer} />
-        {/* Create Video */}
         <Route exact path="/videos/:videoId" component={VideoShowContainer} />
-        {/* Edit Video */}
+        <Route path="/results" component={SearchIndexContainer} />
       </Switch>
     </div>
   )

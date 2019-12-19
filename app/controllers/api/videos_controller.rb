@@ -89,6 +89,7 @@ class Api::VideosController < ApplicationController
 
   def search
     @videos = Video.search_by_title(params[:result])
+    render :index
   end
 
   private
