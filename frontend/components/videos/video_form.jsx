@@ -85,15 +85,15 @@ class VideoForm extends React.Component {
             placeholder="Add a title that describes your video"
             maxLength="100"
           />
+          {error && (
+            <div className="error-input-warnings">
+              <img src={window.errorIcon} className="error-icon-img" />
+              <span>{error}</span>
+            </div>
+          )}
           <span className="input-label-float">Title (required)</span>
-          <span className="text-character-remaining">{title.length}/100</span>
+          <span className={`text-character-remaining ${error ? "input-form-text-char-errors" : null }`}>{title.length}/100</span>
         </label>
-        {error && (
-          <div className="error-input-warnings">
-            <img src={window.errorIcon} className="error-icon-img" />
-            <span>{error}</span>
-          </div>
-        )}
       </>
     )
   }

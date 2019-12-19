@@ -7,11 +7,16 @@ class CommentForm extends React.Component {
     this.state = this.props.comment;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUserNotLoggedIn = this.handleUserNotLoggedIn.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount() {
     this.updateTextArea();
+    if (this.props.formType === 'Update') {
+      this.setState({ showCreateButton: true });
+    }
   }
+
   handleSubmit(e) {
     const { formType, hideEditForm } = this.props;
     e.preventDefault();
@@ -38,12 +43,22 @@ class CommentForm extends React.Component {
       this.props.history.push('/login');
       return null;
     }
+    this.setState({ showCreateButton: true });
   }
 
   updateTextArea() {
     if (this.textAreaRef) {
       this.textAreaRef.style.height = "24px";
       this.textAreaRef.style.height = this.textAreaRef.scrollHeight + "px";
+    }
+  }
+
+  hideForm() {
+    const { formType, hideEditForm } = this.props;
+    if (formType === 'Update') {
+      hideEditForm();
+    } else {
+      this.setState({ showCreateButton: false, body: '' });
     }
   }
 
@@ -62,11 +77,19 @@ class CommentForm extends React.Component {
               onClick={this.handleUserNotLoggedIn}
               value={this.state.body}
               ref={textAreaRef => this.textAreaRef = textAreaRef}
+              wrap="soft"
             />
           </label>
-          <div>
+          { this.state.showCreateButton && (
+            <div className="comment-form-buttons">
+            <div 
+              className="comment-form-cancel-button pointer"
+              onClick={this.hideForm}
+            >CANCEL</div>
             <button className="blue-button-only" type="submit">{formType === 'Create' ? "COMMENT" : "SAVE"}</button>
           </div>
+          ) }
+          
         </form>
       </div>
     );

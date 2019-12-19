@@ -50,12 +50,20 @@ class SideBar extends React.Component {
           LinkedIn
         </a>
         <a 
-          href="https://www.appacademy.io/" 
+          href="https://angel.co/" 
           target="_blank"
           className={`${this.styleWideSidebar()}`}
         >
-          <img src={window.appacademyLogo} />
-          App Academy
+          <img src={window.angellistLogo} />
+          AngelList
+        </a>
+        <a 
+          href="#" 
+          target="_blank"
+          className={`${this.styleWideSidebar()}`}
+        >
+          <img src={window.portfolioIcon} />
+          My Portfolio
         </a>
         <div>
 
