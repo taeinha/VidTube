@@ -9,18 +9,20 @@
 <br />
 
 # Table of Contents
-* Introduction
-* Technologies
-* Features
-* Challenges
-* Future Considerations
+* <a href="#intro">Introduction</a>
+* <a href="#technologies">Technologies</a>
+* <a href="#features">Features</a>
+* <a href="#challenges">Challenges</a>
+* <a href="#future">Future Considerations</a>
 
 <br />
+<div id="intro"></div>
 
 # Introduction
 VidTube is a video-sharing platform (YouTube clone) where users can upload and share videos that other users can view, like, or comment on.
 
 <br />
+<div id="technologies"></div>
 
 # Technologies
 
@@ -31,6 +33,7 @@ VidTube is a video-sharing platform (YouTube clone) where users can upload and s
 * Heroku
 
 <br />
+<div id="features"></div>
 
 # Features
 Some VidTube features include but are not limited to:
@@ -40,6 +43,7 @@ Some VidTube features include but are not limited to:
 * Like or Dislike videos and comments
 
 <br />
+<div id="challenges"></div>
 
 # Challenges
 The implementation of `likes` was a learning experience due to its polymorphic associations with `videos` and `comments`. For instance, the Video Show page renders the main video item, a list of randomized videos, and the comments associated with the main video. Additionally, data on likes for the main video and all of its comments are also required for the frontend state.
@@ -83,6 +87,7 @@ Although this is an additional loop for each comments, it appears to be more opt
 A future consideration would be to add two columns in the comments table to track their like and dislike counts. However, this will require an additional post request.
 
 <br />
+<div id="future"></div>
 
 # Future Considerations
 * User channels - users can have multiple channels, where videos would also be attached to channels
