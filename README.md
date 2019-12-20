@@ -1,4 +1,4 @@
-# <center> VidTube (YouTube clone) </center>
+# <p align="center"> VidTube (YouTube clone) </p>
 
 <br />
 <p align="center">
