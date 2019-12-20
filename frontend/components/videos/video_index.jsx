@@ -42,7 +42,7 @@ class VideoIndex extends React.Component {
     return (
       <main className="overall-videos-container">
         <SideBar />
-        <section className="outer-videos-container">
+        <section className={`outer-videos-container ${this.props.sidebar.show ? "outer-videos-sidebar-extend" : null}`}>
           <h1>Recommended</h1>
           {this.displayAllVideos()}
         </section>

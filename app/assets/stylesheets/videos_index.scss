@@ -13,16 +13,19 @@
 
 .outer-videos-container {
   background-color: #F9F9F9;
-  // margin-left: 72px;
+  margin-left: 72px;
   padding: 0 20px;
   
+}
+
+.outer-videos-sidebar-extend {
+  margin-left: 240px;
 }
 
 .inner-videos-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
 
   .video-item-container, .hidden-video-item {
     min-width: 240px;

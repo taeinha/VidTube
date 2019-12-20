@@ -31,7 +31,7 @@ class SearchIndex extends React.Component {
     return (
       <div className="search-index-include-sidebar">
         <SideBar />
-        <main className="search-index-overall-container">
+        <main className={`search-index-overall-container ${this.props.sidebar.show ? "search-index-overall-extend" : null }`}>
           <div className="search-index-inner-container">
             <header>
               FILTER

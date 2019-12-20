@@ -1,6 +1,6 @@
 .search-index-overall-container {
   padding: 16px 24px;
-  // margin-left: 72px;
+  margin-left: 72px;
   background-color: #F9F9F9;
   width: 100%;
   display: flex;
@@ -79,4 +79,8 @@
   a {
     box-sizing: border-box;
   }
+}
+
+.search-index-overall-extend {
+  margin-left: 240px;
 }
