@@ -1,24 +1,5 @@
-# README
+# VidTube (YouTube clone)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+VidTube is a video-sharing platform (YouTube clone) where users can upload and share videos that other users can view, like, or comment on.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img align="center" src="https://github.com/taeinha/VidTube/blob/master/app/assets/images/vidtube.png?raw=true" alt="VidTube Logo" />
