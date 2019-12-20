@@ -1,12 +1,12 @@
 # <center> VidTube (YouTube clone) </center>
 
-<div style="height: 20px"></div>
+<br />
 <p align="center">
   <a href="https://vidtube-app.herokuapp.com/">
     <img src="https://github.com/taeinha/VidTube/blob/master/app/assets/images/vidtube.png?raw=true" alt="VidTube Logo" /> 
   </a>
 </p>
-<div style="height: 20px"></div>
+<br />
 
 # Table of Contents
 * Introduction
@@ -15,12 +15,12 @@
 * Challenges
 * Future Considerations
 
-<div style="height: 20px"></div>
+<br />
 
 # Introduction
 VidTube is a video-sharing platform (YouTube clone) where users can upload and share videos that other users can view, like, or comment on.
 
-<div style="height: 20px"></div>
+<br />
 
 # Technologies
 
@@ -30,7 +30,7 @@ VidTube is a video-sharing platform (YouTube clone) where users can upload and s
 * Amazon Web Services (S3)
 * Heroku
 
-<div style="height: 20px"></div>
+<br />
 
 # Features
 Some VidTube features include but are not limited to:
@@ -39,7 +39,7 @@ Some VidTube features include but are not limited to:
 * Create, edit or delete comments made on videos
 * Like or Dislike videos and comments
 
-<div style="height: 20px"></div>
+<br />
 
 # Challenges
 The implementation of `likes` was a learning experience due to its polymorphic associations with `videos` and `comments`. For instance, the Video Show page renders the main video item, a list of randomized videos, and the comments associated with the main video. Additionally, data on likes for the main video and all of its comments are also required for the frontend state.
@@ -82,7 +82,7 @@ Although this is an additional loop for each comments, it appears to be more opt
 
 A future consideration would be to add two columns in the comments table to track their like and dislike counts. However, this will require an additional post request.
 
-<div style="height: 20px"></div>
+<br />
 
 # Future Considerations
 * User channels - users can have multiple channels, where videos would also be attached to channels
