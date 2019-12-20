@@ -16,7 +16,7 @@ class Api::VideosController < ApplicationController
       .includes(:uploader)
       .where.not(id: params[:id])
       .order(Arel.sql('random()'))
-      .limit(5)
+      .limit(10)
     @like_counts = like_counts(@video)
     if logged_in?
       @like = @video.likes.where(user_id: current_user.id).first
@@ -34,7 +34,7 @@ class Api::VideosController < ApplicationController
         .includes(:uploader)
         .where.not(id: @video.id)
         .order(Arel.sql('random()'))
-        .limit(5)
+        .limit(10)
       @like_counts = like_counts(@video)
       @like = @video.likes.where(user_id: current_user.id).first
       render :show
