@@ -47,16 +47,21 @@ Some VidTube features include but are not limited to:
 * Create, edit or delete comments made on videos
 * Like or Dislike videos and comments
 
+<p align="center">(Logging a user in)</p>
 <p align="center">
-  <p>(Logging a user in)</p>
-  <a href="https://vidtube-app.herokuapp.com/">
+  <a align="center" href="https://vidtube-app.herokuapp.com/">
     <img src="https://media.giphy.com/media/LQ3VfPz5sh86YC8W0z/giphy.gif" alt="VidTube GIF" />
   </a>
-  <br />
-  <p>(Creating comments and liking or disliking comments / videos)</p>
+</p>
+<br />
+
+<p align="center">(Creating comments and liking or disliking comments / videos)</p>
+<p align="center">
+  
   <a href="https://vidtube-app.herokuapp.com/">
     <img src="https://media.giphy.com/media/LmIaDXJsGWqkZEGDMW/giphy.gif" alt="VidTube GIF" />
   </a>
+  </p>
 </p>
 
 <br />
