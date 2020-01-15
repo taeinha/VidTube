@@ -3,10 +3,15 @@
 <br />
 <p align="center">
   <a href="https://vidtube-app.herokuapp.com/">
-    <img src="https://github.com/taeinha/VidTube/blob/master/app/assets/images/vidtube.png?raw=true" alt="VidTube Logo" /> 
+    <img src="https://github.com/taeinha/VidTube/blob/master/app/assets/images/vidtube.png?raw=true" alt="VidTube Logo" />
   </a>
 </p>
 <br />
+<p align="center">
+  <a href="https://vidtube-app.herokuapp.com/">
+    <img src="https://media.giphy.com/media/Sv9UpOwSZNIy1iaHtC/giphy.gif" alt="VidTube GIF" />
+  </a>
+</p>
 
 # Table of Contents
 * <a href="#intro">Introduction</a>
@@ -41,6 +46,18 @@ Some VidTube features include but are not limited to:
 * View, upload, update, or delete videos
 * Create, edit or delete comments made on videos
 * Like or Dislike videos and comments
+
+<p align="center">
+  <p>(Logging a user in)</p>
+  <a href="https://vidtube-app.herokuapp.com/">
+    <img src="https://media.giphy.com/media/LQ3VfPz5sh86YC8W0z/giphy.gif" alt="VidTube GIF" />
+  </a>
+  <br />
+  <p>(Creating comments and liking or disliking comments / videos)</p>
+  <a href="https://vidtube-app.herokuapp.com/">
+    <img src="https://media.giphy.com/media/LmIaDXJsGWqkZEGDMW/giphy.gif" alt="VidTube GIF" />
+  </a>
+</p>
 
 <br />
 <div id="challenges"></div>
