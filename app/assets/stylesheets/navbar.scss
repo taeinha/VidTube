@@ -58,6 +58,11 @@
       padding-left: 8px;
       box-shadow:inset 0 0 1px 1px rgba(197, 197, 197, 0.212);
     }
+
+    input:focus {
+      border: 1px solid #1A73E8;
+    }
+
     button {
       width: 65px;
       height: 32px;
@@ -72,6 +77,15 @@
         margin: 0;
         padding: 0;
       }
+    }
+
+    button:hover {
+      background-color: rgb(240, 240, 240);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover img {
+      filter: invert(20%) sepia(0%) saturate(2517%) hue-rotate(247deg) brightness(83%) contrast(90%);
     }
   }
 
