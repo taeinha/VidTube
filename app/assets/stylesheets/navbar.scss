@@ -24,18 +24,6 @@
     height: 32px;
   }
 
-  .small-img {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-  }
-
-  .small-img:active {
-    background-color: rgb(221, 221, 221);
-    filter: none;
-    transition: all 0.4s ease;
-  }
-
   .vidtube-logo {
     width: 80px;
     height: 24px;
@@ -148,4 +136,22 @@
     }
   }
 
+}
+
+.small-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.small-img:active {
+  background-color: rgb(221, 221, 221);
+  filter: none;
+  transition: all 0.4s ease;
+}
+
+.vidtube-logo {
+  width: 80px;
+  height: 24px;
+  // margin-left: 50px;
 }

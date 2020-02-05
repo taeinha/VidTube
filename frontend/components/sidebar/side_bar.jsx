@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import VidtubeLogo from '../logo/logo';
 
 class SideBar extends React.Component {
 
@@ -31,9 +32,19 @@ class SideBar extends React.Component {
     const { location } = this.props;
 
     if ( location.pathname.includes("/videos")) {
-      return "side-bar-modal";
+      return (
+        <nav className="side-bar-top">
+          <img
+            src={window.hamburgerIcon}
+            className="small-img convert-gray pointer"
+            onClick={this.handleSidebar}
+          />
+          <div>
+            <VidtubeLogo />
+          </div>
+        </nav>
+      )
     }
-    return "";
   }
 
   isVideoShow() {
@@ -44,7 +55,10 @@ class SideBar extends React.Component {
 
   displaySidebar() {
     return (
-      <main className={`side-bar-main-container ${this.styleWideSidebar()}`}>
+      <main 
+        className={`side-bar-main-container ${this.styleWideSidebar()}`} 
+        onClick={e => e.stopPropagation()}>
+        {this.isModalSidebar()}
         <Link
           to="/"
           className={`${this.styleCurrentRoute()} ${this.styleWideSidebar()}`}
@@ -91,16 +105,22 @@ class SideBar extends React.Component {
     )
   }
 
+  displaySidebarModal() {
+    const { sidebar, hideSidebar } = this.props;
+
+    if (sidebar.show) {
+      return (
+        <div className="modal-background" onClick={e => hideSidebar()}>
+          {this.displaySidebar()}
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <>
-        {this.isVideoShow() ? (
-          <div className="modal-background">
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-              {this.displaySidebar()}
-            </div>
-          </div>
-        ) : this.displaySidebar()}
+        {this.isVideoShow() ? this.displaySidebarModal() : this.displaySidebar()}
       </>
     )
   }

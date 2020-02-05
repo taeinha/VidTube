@@ -8,20 +8,6 @@
   background-color: white;
   height: 100%;
 
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: #606060;
-    height: 75px;
-    padding: 16px 0 14px 0;
-    width: 72px;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
-
   img {
     width: 18px;
     height: 18px;
@@ -55,6 +41,21 @@
     
   }
 }
+
+.side-bar-main-container > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #606060;
+  height: 75px;
+  padding: 16px 0 14px 0;
+  width: 72px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .side-bar-show-wider {
   width: 240px;
   .side-bar-red {
@@ -65,5 +66,32 @@
   > div {
     height: 4px;
     border-bottom: 1px solid rgb(235, 235, 235);
+  }
+}
+
+.side-bar-top {
+  display: flex;
+  padding-left: 16px;
+  align-items: center;
+
+  .small-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 16px;
+  }
+
+  .small-img:active {
+    background-color: rgb(221, 221, 221);
+    filter: none;
+    transition: all 0.4s ease;
+  }
+
+  .vidtube-logo {
+    width: 80px;
+    height: 24px;
+    // margin-left: 50px;
+    padding: 8px;
   }
 }
