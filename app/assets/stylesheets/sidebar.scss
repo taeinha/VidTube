@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 72px;
-  padding-top: 10px;
   position: fixed;
   z-index: 99;
   background-color: white;
   height: 100%;
+  overflow: hidden;
 
   img {
     width: 18px;
@@ -56,6 +56,10 @@
   box-sizing: border-box;
 }
 
+.side-bar-main-container > a:first-of-type {
+  margin-top: 10px;
+}
+
 .side-bar-show-wider {
   width: 240px;
   .side-bar-red {
@@ -64,15 +68,20 @@
   }
 
   > div {
-    height: 4px;
+    height: 1px;
     border-bottom: 1px solid rgb(235, 235, 235);
   }
+}
+
+.side-bar-border-line {
+  margin-top: 10px;
 }
 
 .side-bar-top {
   display: flex;
   padding-left: 16px;
   align-items: center;
+  padding-top: 8px;
 
   .small-img {
     width: 24px;
@@ -93,5 +102,38 @@
     height: 24px;
     // margin-left: 50px;
     padding: 8px;
+  }
+}
+
+.side-bar-transition-out {
+  // visibility: hidden;
+  animation: slideInLeft 0.2s linear both;
+}
+
+.side-bar-transition-in {
+  animation: slideInRight 0.2s linear both;
+}
+
+@keyframes slideInRight {
+  from {
+    // width: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    // width: 240px;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    // width: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    // width: 240px;
+    transform: translate3d(-100%, 0, 0);
   }
 }

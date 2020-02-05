@@ -13,9 +13,7 @@ class SideBar extends React.Component {
 
     if (sidebar.show) {
       return "side-bar-show-wider";
-    } else if (location.pathname.includes("/videos")) {
-      return "hidden";
-    }
+    } 
     return "";
   }
 
@@ -29,7 +27,7 @@ class SideBar extends React.Component {
   }
 
   isModalSidebar() {
-    const { location } = this.props;
+    const { location, hideSidebar } = this.props;
 
     if ( location.pathname.includes("/videos")) {
       return (
@@ -37,7 +35,7 @@ class SideBar extends React.Component {
           <img
             src={window.hamburgerIcon}
             className="small-img convert-gray pointer"
-            onClick={this.handleSidebar}
+            onClick={e => hideSidebar()}
           />
           <div>
             <VidtubeLogo />
@@ -50,15 +48,19 @@ class SideBar extends React.Component {
   isVideoShow() {
     const { location } = this.props;
 
-    return location.pathname.includes("/videos");
+    if (location.pathname.includes("/videos")) {
+      return "side-bar-transition-in";
+    }
+    return "";
   }
 
   displaySidebar() {
     return (
       <main 
-        className={`side-bar-main-container ${this.styleWideSidebar()}`} 
+        className={`side-bar-main-container ${this.styleWideSidebar()} ${this.isVideoShow()}`} 
         onClick={e => e.stopPropagation()}>
         {this.isModalSidebar()}
+        {this.isVideoShow() ? (<div></div>) : null}
         <Link
           to="/"
           className={`${this.styleCurrentRoute()} ${this.styleWideSidebar()}`}
@@ -98,7 +100,7 @@ class SideBar extends React.Component {
           <img src={window.portfolioIcon} />
           Portfolio
         </a>
-        <div>
+        <div className="side-bar-border-line">
 
         </div>
       </main>
