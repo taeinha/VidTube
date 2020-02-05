@@ -2,6 +2,7 @@ import React from 'react';
 import { getDate } from '../../util/date_util';
 import VideoShowItem from './video_show_item';
 import CommentIndex from '../comments/comment_index_container';
+import SideBar from '../sidebar/side_bar_container';
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -192,6 +193,7 @@ class VideoShow extends React.Component {
     const { video } = this.props;
     return (
       <main className="overall-video-show-container">
+        <SideBar />
         {video ? this.display() : null }
       </main>
     );
