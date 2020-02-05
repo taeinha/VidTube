@@ -36,42 +36,48 @@ class SideBar extends React.Component {
     return "";
   }
 
-  render() {
+  isVideoShow() {
+    const { location } = this.props;
+
+    return location.pathname.includes("/videos");
+  }
+
+  displaySidebar() {
     return (
       <main className={`side-bar-main-container ${this.styleWideSidebar()}`}>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className={`${this.styleCurrentRoute()} ${this.styleWideSidebar()}`}
         >
           <img src={window.homeIcon} />
           Home
         </Link>
-        <a 
-          href="https://github.com/taeinha/VidTube" 
-          target="_blank" 
+        <a
+          href="https://github.com/taeinha/VidTube"
+          target="_blank"
           className={`${this.styleWideSidebar()}`}
         >
           <img src={window.githubLogo} />
           GitHub
         </a>
-        <a 
-          href="https://www.linkedin.com/in/tae-in-ha/" 
+        <a
+          href="https://www.linkedin.com/in/tae-in-ha/"
           target="_blank"
           className={`${this.styleWideSidebar()}`}
         >
           <img src={window.linkedinLogo} />
           LinkedIn
         </a>
-        <a 
-          href="https://angel.co/tae-in-ha" 
+        <a
+          href="https://angel.co/tae-in-ha"
           target="_blank"
           className={`${this.styleWideSidebar()}`}
         >
           <img src={window.angellistLogo} />
           AngelList
         </a>
-        <a 
-          href="https://taeinha.com/" 
+        <a
+          href="https://taeinha.com/"
           target="_blank"
           className={`${this.styleWideSidebar()}`}
         >
@@ -82,6 +88,20 @@ class SideBar extends React.Component {
 
         </div>
       </main>
+    )
+  }
+
+  render() {
+    return (
+      <>
+        {this.isVideoShow() ? (
+          <div className="modal-background">
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
+              {this.displaySidebar()}
+            </div>
+          </div>
+        ) : this.displaySidebar()}
+      </>
     )
   }
 }
