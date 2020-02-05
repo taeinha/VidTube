@@ -43,7 +43,7 @@ class SideBar extends React.Component {
   }
 
   isModalSidebar() {
-    const { location, hideSidebar } = this.props;
+    const { location } = this.props;
 
     if ( location.pathname.includes("/videos")) {
       return (
@@ -129,7 +129,7 @@ class SideBar extends React.Component {
   }
 
   displaySidebarModal() {
-    const { sidebar, hideSidebar } = this.props;
+    const { sidebar } = this.props;
 
     if (sidebar.show) {
       return (
