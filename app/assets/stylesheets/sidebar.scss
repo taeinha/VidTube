@@ -106,12 +106,11 @@
 }
 
 .side-bar-transition-out {
-  // visibility: hidden;
   animation: slideInLeft 0.2s linear both;
 }
 
 .side-bar-transition-in {
-  animation: slideInRight 0.2s linear both;
+  animation: slideInRight 0.2s ease both;
 }
 
 @keyframes slideInRight {
