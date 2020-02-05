@@ -27,6 +27,13 @@
   .small-img {
     width: 20px;
     height: 20px;
+    border-radius: 50%;
+  }
+
+  .small-img:active {
+    background-color: rgb(221, 221, 221);
+    filter: none;
+    transition: all 0.4s ease;
   }
 
   .vidtube-logo {

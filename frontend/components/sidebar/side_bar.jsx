@@ -63,7 +63,7 @@ class SideBar extends React.Component {
           className={`${this.styleWideSidebar()}`}
         >
           <img src={window.portfolioIcon} />
-          My Portfolio
+          Portfolio
         </a>
         <div>
 
