@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 72px;
-  margin-top: 10px;
+  padding-top: 10px;
   position: fixed;
+  z-index: 99;
+  background-color: white;
+  height: 100%;
 
   a {
     display: flex;
@@ -16,6 +19,7 @@
     padding: 16px 0 14px 0;
     width: 72px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   img {

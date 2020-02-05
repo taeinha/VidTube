@@ -8,11 +8,14 @@ class SideBar extends React.Component {
   }
   
   styleWideSidebar() {
-    const { sidebar } = this.props;
+    const { sidebar, location } = this.props;
 
     if (sidebar.show) {
       return "side-bar-show-wider";
+    } else if (location.pathname.includes("/videos")) {
+      return "hidden";
     }
+    return "";
   }
 
   styleCurrentRoute() {
@@ -21,6 +24,16 @@ class SideBar extends React.Component {
     if (location.pathname === "/") {
       return "side-bar-red";
     }
+    return "";
+  }
+
+  isModalSidebar() {
+    const { location } = this.props;
+
+    if ( location.pathname.includes("/videos")) {
+      return "side-bar-modal";
+    }
+    return "";
   }
 
   render() {
