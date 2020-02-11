@@ -1,16 +1,14 @@
 import { connect } from "react-redux";
-import Modal from "./modal";
 import { hideLoader } from "../../actions/load_actions";
-
+import Load from "./load";
 
 
 const msp = state => ({
-  modal: state.ui.modal,
-  currentUser: state.session.id
+  load: state.ui.load
 });
 
 const mdp = dispatch => ({
-  hideModal: () => dispatch(hideModal())
+  hideLoader: () => dispatch(hideLoader())
 });
 
-export default connect(msp, mdp)(Modal);
+export default connect(msp, mdp)(Load);
