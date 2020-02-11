@@ -9,7 +9,7 @@ const msp = state => {
     videos: Object.values(state.entities.videos),
     users: state.entities.users,
     sidebar: state.ui.sidebar,
-    load: state.ui.load,
+    load: state.ui.load.show,
   };
 };
 
