@@ -3,11 +3,16 @@ import React from 'react';
 class Load extends React.Component {
 
   render() {
+    const { load } = this.props;
 
-    return (
-      <div className="loader-container">
-      </div>
-    );
+    if (load) {
+      return (
+        <div className="loading-bar">
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 };
 
