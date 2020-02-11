@@ -4,7 +4,7 @@ import Load from "./load";
 
 
 const msp = state => ({
-  load: state.ui.load
+  load: state.ui.load.show
 });
 
 const mdp = dispatch => ({

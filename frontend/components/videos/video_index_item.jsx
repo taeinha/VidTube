@@ -1,10 +1,17 @@
 import React from 'react';
 import { timeConvert } from '../../util/date_util';
 
-const VideoIndexItem = ({ video, user, history }) => {
-  // debugger
+const VideoIndexItem = ({ video, user, history, showLoader, hideLoader }) => {
+
   return (
-    <div className="video-item-container pointer" onClick={() => history.push(`/videos/${video.id}`)}>
+    <div className="video-item-container pointer" 
+      onClick={() => {
+        showLoader({show: true});
+        setTimeout(() => {
+          hideLoader();
+          history.push(`/videos/${video.id}`);
+        }, 1000)
+      }}>
       <section className="video-item-inner-container">
         <div className="video-thumbnail-container aspect-ratio-container">
           <img src={video.thumbnailUrl} className="video-thumbnail aspect-ratio-container-inner"/>

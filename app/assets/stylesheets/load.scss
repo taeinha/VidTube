@@ -5,9 +5,9 @@
   
   top: 0;
   left: 0;
-  
+  z-index: 999;
   animation: loadingBar .8s ease-out;
-  height: 4px;
+  height: 2px;
   background: red;
 
 }

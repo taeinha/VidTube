@@ -1,9 +1,9 @@
 export const SHOW_LOADER = "SHOW_LOADER";
 export const HIDE_LOADER = "HIDE_LOADER";
 
-export const showLoader = loader => ({
+export const showLoader = load => ({
   type: SHOW_LOADER,
-  loader
+  load
 });
 
 export const hideLoader = () => ({
