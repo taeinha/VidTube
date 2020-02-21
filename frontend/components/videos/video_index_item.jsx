@@ -6,7 +6,7 @@ const VideoIndexItem = ({ video, user, history, showLoader, hideLoader }) => {
   return (
     <div className="video-item-container pointer" 
       onClick={() => {
-        showLoader({show: true});
+        showLoader({ show: true, color: "red" });
         setTimeout(() => {
           hideLoader();
           history.push(`/videos/${video.id}`);

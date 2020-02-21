@@ -8,8 +8,6 @@
   z-index: 999;
   animation: loadingBar .8s ease-out;
   height: 2px;
-  background: red;
-
 }
 
 @keyframes loadingBar {
@@ -17,12 +15,7 @@
     width: 0%;
   }
 
-  80% {
-    width: 100%;
-    opacity: 1;
-  }
-
   100% {
-    opacity: 0;
-  } 
+    width: 100%;
+  }
 }
