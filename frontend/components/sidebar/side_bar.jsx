@@ -14,7 +14,7 @@ class SideBar extends React.Component {
   }
   
   styleWideSidebar() {
-    const { sidebar, location } = this.props;
+    const { sidebar } = this.props;
 
     if (sidebar.show) {
       return "side-bar-show-wider";

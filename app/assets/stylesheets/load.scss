@@ -1,0 +1,21 @@
+.loading-bar {
+  position: relative;
+  width: 100%;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  z-index: 999;
+  animation: loadingBar .8s ease-out;
+  height: 2px;
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

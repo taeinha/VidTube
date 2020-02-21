@@ -6,11 +6,13 @@ import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import Modal from './modal/modal_container';
 import SearchIndexContainer from './search/search_index_container';
+import Load from './load/load_container';
 
 const App = (props) => {
   return (
     <div className="app-container">
       <Modal />
+      <Load />
       <NavBarContainer />
       <div className="nav-bar-hidden-div"></div>
       <Switch>

@@ -1,5 +1,6 @@
 .overall-videos-container {
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
@@ -54,6 +55,7 @@
         color: #606060;
         line-height: 1.3;
       }
+
       h3 {
         margin: 12px 0 5px 0;
         font-weight: 500;

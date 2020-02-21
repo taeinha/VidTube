@@ -15,13 +15,15 @@ class VideoIndex extends React.Component {
   }
 
   displayAllVideos() {
-    const { videos, users } = this.props;
+    const { videos, users, showLoader, hideLoader } = this.props;
     const videoDivs = videos.map(video => (
       <VideoIndexItem 
         video={video} 
         user={users[video.uploader_id]}
         history={this.props.history}
         key={video.id}
+        showLoader={showLoader}
+        hideLoader={hideLoader}
       />
       )
     )

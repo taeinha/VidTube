@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const VideoShowItem = ({ video, user, history }) => {
+const VideoShowItem = ({ video, user, history, showLoader, hideLoader }) => {
   return (
-    <div className="video-show-item-container pointer" onClick={() => history.push(`/videos/${video.id}`)}>
+    <div className="video-show-item-container pointer" 
+      onClick={() => {
+        showLoader({ show: true, color: "red" });
+        setTimeout(() => {
+          hideLoader();
+          history.push(`/videos/${video.id}`);
+        }, 1000)
+      }}>
       {/* <Link to=""> */}
         <div className="video-show-item-img-box">
           <img src={video.thumbnailUrl} />

@@ -21,6 +21,7 @@
  *= require comments_index
  *= require search_index
  *= require modal
+ *= require load
  *= require_self
  */
 

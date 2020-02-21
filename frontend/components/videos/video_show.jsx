@@ -155,7 +155,8 @@ class VideoShow extends React.Component {
 
   displayRight() {
     if (!this.props.video.showVideos) return null;
-    
+    const { hideLoader, showLoader } = this.props;
+
     let that = this;
     const videoDivs = this.props.video.showVideos.map((videoId, i) => {
       const vid = that.props.videos[videoId];
@@ -167,6 +168,8 @@ class VideoShow extends React.Component {
             video={vid} 
             history={that.props.history}
             user={user}
+            hideLoader={hideLoader}
+            showLoader={showLoader}
           />
           {i === 0 ? <div key={i} className="video-show-fake-div"></div> : null}
         </section>
